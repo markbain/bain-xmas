@@ -1,5 +1,5 @@
 {
-  "name": "dn-digital",
+  "name": "mbd-boilerplate-html",
   "version": "0.0.0",
   "devDependencies": {
     "grunt": "~0.4.4",
@@ -17,7 +17,9 @@
     "grunt-notify": "~0.3.1",
     "load-grunt-tasks": "~0.4.0",
     "grunt-bower-task": "~0.4.0",
-    "grunt-modernizr": "^0.6.0",
-    "grunt-bump": "0.0.16"
+    "grunt-modernizr": "~0.6.0",
+    "grunt-bump": "0.0.16",
+    "grunt-usemin": "2.6.2"
+	 
   }
 }
