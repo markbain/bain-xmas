@@ -19,21 +19,7 @@ bower_components
 .htaccess
 sitemap.xml
 sitemap.xml.gz
-httpdocs/*.php
-wp-content/advanced-cache.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-httpdocs/wp-content/*.php
-httpdocs/wp-content/upgrade/
-httpdocs/wp-content/plugins/
-httpdocs/wp-content/mu-plugins/
-httpdocs/wp-content/themes/*.php
-httpdocs/wp-content/languages/
-httpdocs/wp-content/wp-cache-config.php
-httpdocs/wp-admin/
-httpdocs/wp-includes/
+
 
 # =========================
 # Operating System Files
