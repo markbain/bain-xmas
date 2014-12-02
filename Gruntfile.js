@@ -23,11 +23,7 @@ module.exports = function(grunt) {
                 files: '<%= jshint.all %>',
                 tasks: ['jshint']
             },
-            livereload: {
-                options: { livereload: true },
-                files: [ 
-					 	'**/*']
-            }
+        
         },
 		
 
@@ -61,13 +57,13 @@ module.exports = function(grunt) {
         autoprefixer: {
             options: {
                 browsers: ['last 2 versions', 'ie 9', 'ios 6', 'android 4', 'android 3'],
-                // map: true
+                map: true,
+					 silent: false,
             },
-            files: {
-                expand: true,
-                flatten: true,
-                src: 'httpdocs/css/style.css',
-                dest: 'httpdocs/css'
+				dist: { // Target
+					files: {
+                	'httpdocs/assets/css/style.css': 'httpdocs/assets/css/style.css'
+						}
             },
         },
 
@@ -85,11 +81,11 @@ module.exports = function(grunt) {
 		useminPrepare: {
 	      html: 'httpdocs/index.html',
 	     	options: {
-      		dest: 'release/<%= pkg.name %>.<%= pkg.version %>'
+      		dest: 'rc'
     		}
 	  },
 	  usemin:{
-	  	html: 'release/<%= pkg.name %>.<%= pkg.version %>/index.html',
+	  	html: 'rc/index.html',
 	  },
 
 		 // Version
@@ -98,7 +94,7 @@ module.exports = function(grunt) {
         		options: {
             	prefix: 'Version\\:\\s'
         		},
-        		src: [ 'httpdocs/assets/css/source/style.css' ],
+        		src: [ 'rc/assets/css/source/style.css' ],
    		}
 		},
 
@@ -129,18 +125,27 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'httpdocs/release/assets/images/',
+                    cwd: 'httpdocs/rc/assets/images/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'httpdocs/release/assets/images/'
+                    dest: 'httpdocs/rc/assets/images/'
                 }]
             }
         },
 
 		  // Copy the plugin to a versioned release directory
 		  copy: {
-			main: {
+			dist: {
 				files:  [
-					// includes files within path and its sub-directories
+      			{expand: true, 
+					cwd: 'rc/',
+					src: [
+						'**',						
+					], 
+					dest: 'dist/<%= pkg.name %>.<%= pkg.version %>/'},
+				],
+			},
+			rc: {
+				files:  [
       			{expand: true, 
 					cwd: 'httpdocs/',
 					src: [
@@ -149,7 +154,7 @@ module.exports = function(grunt) {
 						'!assets/js/**',					
 						
 					], 
-					dest: 'release/<%= pkg.name %>.<%= pkg.version %>/'},
+					dest: 'rc/'},
 				],
 			},
 			font_awesome: {
@@ -167,22 +172,22 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			main: [
-				'release/<%= pkg.name %>.<%= pkg.version %>'
-			],		
-			temp: [
-				'.tmp'
-			],		
+			dist: [
+				'dist/<%= pkg.name %>.<%= pkg.version %>'
+			],
+			rc: [
+				'rc'
+			],					
 		},
 
 		compress: {
 			main: {
 				options: {
 					mode: 'zip',
-					archive: 'release/<%= pkg.name %>.<%= pkg.version %>.zip'
+					archive: 'dist/<%= pkg.name %>.<%= pkg.version %>.zip'
 				},
 				expand: true,
-				cwd: 'release/<%= pkg.name %>.<%= pkg.version %>',
+				cwd: 'dist/<%= pkg.name %>.<%= pkg.version %>',
 				src: ['**/*'],
 				dest: '<%= pkg.name %>/'
 			}		
@@ -198,24 +203,32 @@ module.exports = function(grunt) {
 		'watch'
 	]);
 
-	grunt.registerTask('build', [
-		'bump',
-		'version',
-		'copy', 		
+	// Create a release candidate for testing locally
+	grunt.registerTask('rc', [
+		'bump:patch',
+		'clean:rc', // delete previous rc
+		'copy:rc', 		
 		'useminPrepare',
-			'concat',
-			'uglify',
-			'cssmin',
+			'concat:generated',
+			'uglify:generated',
+			'cssmin:generated',
 		'usemin',
 		'imagemin',
-		//'compress',
-		//'clean',
 	]);
 	
 	// Copy assets from bower_components to theme dir
 	grunt.registerTask('copybower', [
 		'copy:font_awesome',
 		'copy:modernizr'
+	]);	
+
+	// Compress current rc for upload to server
+	grunt.registerTask('dist', [
+		'bump:minor',
+		// 'version',
+		'copy:dist', 				
+		'compress',
+		'clean:dist',
 	]);	
 
 };
