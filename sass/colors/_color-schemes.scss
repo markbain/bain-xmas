@@ -1,0 +1,152 @@
+// Color schemes
+
+@mixin palette-0 {
+	$bg: $color_white;
+	background: $bg;	
+	color: $color_black;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: $color_black;
+
+		}
+		&:hover {
+
+		}
+		&:active {
+
+		}
+	}
+}
+
+@mixin palette-1 {
+	// vars
+	$bg: $color_cape-palliser;
+	$color: $color_victoria-2;
+
+	background: $bg;	
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: $color;
+
+		}
+		&:hover {
+
+		}
+		&:active {
+
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+}
+
+@mixin palette-4 {
+	// vars
+	$bg: $color_victoria-1;
+	$color: $color_cape-palliser;
+
+	background: $bg;	
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: $color;
+
+		}
+		&:hover {
+
+		}
+		&:active {
+
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+}
+
+@mixin palette-3 {
+	// vars
+	$bg: $color_falcon;
+	$color: $color_cape-palliser;
+
+	background: $bg;	
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: $color;
+
+		}
+		&:hover {
+
+		}
+		&:active {
+
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+	.button {
+		background-color: adjust_hue($bg, 100);
+	}
+}
+
+@mixin palette-5 {
+	// vars
+	$bg: $color_victoria-2;
+	$color: $color_cape-palliser;
+	$button-bg: adjust_hue($bg, 100);
+
+	background: $bg;	
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: $color;
+
+		}
+		&:hover {
+
+		}
+		&:active {
+
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+		text-shadow: 1px 1px 1px darken( $bg, 15%); 
+	}
+	.button {
+		background-color: $button-bg;
+		color: $color_white;
+		
+		&:link, &:visited {
+			color: $color_white;
+		}
+
+
+		&:hover {
+			background-color: darken( $bg, 15%);
+		}
+
+		&:active {
+
+		}
+	}
+}

@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Color variables
+   ========================================================================== */
+
+
+/* Assign values to color names */
+
+	/* Shades */
+	
+	$color_black: 				rgba(0,0,0,.8);
+	$color_white: 				rgba(255,255,255,1);	
+	$color_white-bright: 	#fff;
+
+	$color_grey: 				darken($color_white, 50%);
+	$color_grey-light: 		darken($color_white, 10%);
+
+
+	/* BBWondrousWovenMagic */
+
+	/* http://www.colourlovers.com/palette/3532789/BBWondrousWovenMagic */
+
+	$color_cape-palliser:				#A66E42; 	// palette-1
+	$color_leather:						#916453; 	// palette-2
+	$color_falcon:							#755669; 	// palette-3
+	$color_victoria-1:					#59497F; 	// palette-4
+	$color_victoria-2:					#433F90; 	// palette-5
+
+/* Link color names to descriptive names 
+	Use these values outside of this stylesheet!
+*/
+
+	$color_text:							$color_black; 
+	$color_text-cta:						$color_white; 
+	$color_text-cta-2:					$color_grey; 
+
+
+	
+	$color_text-selection: 				$color_victoria-2;
+	// $color_background-cta:				$color_red-psj;
+	//$color_background-cta-2:			$color_white;

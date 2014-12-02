@@ -1,0 +1,53 @@
+.media-object {
+	@include clearfix;
+
+	.image-wrapper {
+		padding: 4px;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		a {
+			display: block; // likely to be wrapped in an anchor tag
+			img {
+				@include transition(all, 0.3s, ease-in-out);
+				
+				&:hover {
+					box-shadow: 4px 6px 10px rgba(0,0,0,.3);
+					@include transition(all, 0.3s, ease-in-out);
+				}
+			}
+		}
+		
+		img {
+			width: 100%;
+		}
+	}
+
+	article {
+		float: left;
+		width: 70%;
+		padding-right: 3%;
+	}
+
+	h1 {
+		clear: none;
+		margin: 0;
+	}
+}
+
+.content-insert {
+
+	.media_block-image {
+		@include breakpoint( $tablet ) {
+			text-align: left;
+		}
+		img {
+			max-width: 99px;
+			@include center-block;
+			@include breakpoint( $tablet ) {
+				margin: 0;
+				display: inline;
+				
+				padding-right: 10px;
+			}
+		}
+	}
+}

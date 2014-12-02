@@ -1,0 +1,37 @@
+/* 
+* 		Color assignment */
+
+/* 	Here's where we assign palettes to the major sections of the site */
+/* 	Assigning palettes from one central location makes it easy to experiment with color schemes */
+
+// 	$color_white 								= palette-0
+// 	$color_pink-psj 							= palette-1
+// 	$color_navy-psj 							= palette-2
+// 	$color_aubergine-psj 					= palette-3
+// 	$color_blue-psj 							= palette-4
+// 	$color_black-psj 							= palette-5
+// 	$color_red-psj 							= palette-6
+// 	$color_brown-psj 							= palette-7
+
+.blog-post {										@include palette-1;}
+.blog-post:nth-child(2n) {						@include palette-1;}
+body {												@include palette-0;}
+#bookshelf {										@include palette-1;}
+#buy-toggle{										@include palette-1;}
+.case-study .content {							@include palette-1;}
+#clients {											@include palette-5;}
+#contact {											@include palette-4;}
+#events {											@include palette-1;}
+.hero {												@include palette-1;}
+html {												@include palette-0;}
+#intro {												@include palette-5;}
+.js-nav-active .site-header {					@include palette-1;}
+.js-search-active .site-header {				@include palette-1;}
+.single .blog-post {								@include palette-0;}
+.single .blog-post:nth-child(2n) {			@include palette-0;}
+.site-footer {										@include palette-3;}
+.site-header {										@include palette-0;}
+#the-books {										@include palette-0;}
+.purchase-options {								@include palette-1;}
+#quotes {											@include palette-1;}
+#tweets {											@include palette-1;}

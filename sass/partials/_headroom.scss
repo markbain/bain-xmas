@@ -1,0 +1,28 @@
+/* Headroom.js */
+
+.headroom {
+			/* when scrolling down */
+			&--unpinned {
+				display: none;
+			}
+
+			/* when scrolling up */
+			&--pinned {
+				display: block;
+			}
+		} 
+
+
+
+
+
+	.headroom {
+		&--top {
+			@extend .slideUp;
+		}
+	}
+	.headroom--not-top {
+		margin-top: 0;
+		@extend .slideDown;
+	}
+

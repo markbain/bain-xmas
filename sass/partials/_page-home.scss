@@ -1,0 +1,210 @@
+/* ==========================================================================
+   Home Page Template
+   ========================================================================== */
+
+#intro {
+text-align: center;
+
+
+}
+
+.case-study {
+	.container {
+		@include add-grid(24);
+		@include add-gutter(1/3);
+		@include breakpoint( $tablet ){
+			min-height: 500px;
+		}
+	}
+	.content {
+		padding: 1em;
+		background: rgba(0,0,0,.4);
+		@include breakpoint( $mobile-horizontal ){
+			@include grid-span(8,1);
+		} 
+	}
+	h3 {
+		margin: 0;
+		padding: 0;
+	}
+	p {
+		display: none;
+		@include breakpoint( $tablet ){
+			display: block;
+		} 
+	}
+	.cta {
+	}
+}
+
+
+div#tweets {
+
+	a {
+		border-bottom: none;
+	}
+
+	#twitter-avatar {
+		width: 21%;
+		@include center-block;		
+		@include breakpoint( $tablet ){
+			float: left;
+			width: 12.5%;
+			margin-right: 10%;
+		}
+
+		img {
+			width: 100%;
+			@include border-radius( 50% );
+		}
+	}
+
+	#twitter-feed {
+		display: none;
+		@include breakpoint( $tablet ){
+			display: block;
+		}
+	}
+
+	#mobile-twitter-feed {
+		ul {
+			@extend .nobullets;
+		}
+		@include breakpoint( $tablet ){
+			display: none;
+		}
+	}
+
+	.twitter-feed {
+		@include breakpoint( $tablet) {
+			float: left;
+			width: 77.5%;
+		}
+
+		.a-tweet {
+			@include clearfix;
+			margin: 0;
+			padding: 0;
+		}
+			
+		.tweet {
+			// text-shadow: 1px 1px 1px darken( $color_blue, 45% );
+		}
+
+		p {
+				margin: 0 0 1em 0;
+				width: 100%;
+				opacity: .73;
+				@include breakpoint( $tablet ){
+					float: left;
+					text-align: left;
+					width: 50%;
+				}
+
+				&.tweet {
+					opacity: .9;
+					font-style: italic;
+					font-size: 1.3em;
+					margin-bottom: .5em;
+					width: 100%;
+				}
+
+				&.timePosted {
+
+
+					&:before {
+						font-family: 'FontAwesome';
+						content: '\f017\0020'; // Clock/NBSP
+					}
+				}
+
+				&.interact {
+
+					@include breakpoint( $tablet ){
+						text-align: right;
+					}
+
+					a {
+						margin-left: 20px;
+						text-decoration: none;
+						opacity: .6;
+
+						&:hover {
+							opacity: 1;
+						}
+
+						span {
+							@extend .visuallyhidden;
+						}
+
+						&:before {
+							font-family: 'FontAwesome';
+						}
+	
+						&.twitter_reply_icon:before {
+								content: '\f112' ;
+						}
+
+						&.twitter_retweet_icon:before {
+								content: '\f079' ;
+						}
+
+						&.twitter_fav_icon:before {
+								content: '\f005' ;
+						}						
+					}
+
+				}
+			
+			}
+	}
+
+}
+
+/* Book shelf layout */
+
+.bookshelf {
+	@include clearfix;
+	@include sgs-change('debug', true);
+	// @include background-grid($color: pink);
+	// @include add-grid(24);
+	@include add-grid(24 at 480px);
+	@include add-gutter(1/3);
+
+	.book-item {
+	
+		article {
+			width: 48%;
+			padding-right: 4%;
+
+			h5 {
+				margin: 0;
+				color: $color_grey;
+				font-style: italic;
+			}
+		}
+		.image-wrapper {
+			width: 48%;
+			float: right;
+		}
+		&:first-of-type {
+			@include breakpoint( $mobile-horizontal ){
+				@include grid-span(6, 1);
+			}
+		}
+		&:nth-of-type(2) {
+			@include breakpoint( $mobile-horizontal ){
+				@include grid-span(6, 10);
+			}
+		}
+		&:nth-of-type(3) {
+			@include breakpoint( $mobile-horizontal ){
+				@include grid-span(6, 19);
+			}
+		}
+	}
+}
+
+/* Client logo slider */
+#clients {
+}

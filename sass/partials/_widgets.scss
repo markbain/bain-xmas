@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Widgets
+   ========================================================================== */
+
+.widget-area {
+}
+
+.widget {
+	margin: 0 0 1.5em;
+}
+
+/* Align widget lists by bullets */
+.widget ul {
+	padding: 0 0 0 23px;
+}
+
+
+
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
+}
+
+/* Search widget */
+.widget_search .search-submit {
+	display: none;
+}

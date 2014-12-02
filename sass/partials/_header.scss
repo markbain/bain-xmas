@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Header
+   ==========================================================================de */
+#pre-header {
+	display: none;
+	position: fixed;
+	top: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	.container {
+		max-width: 100%;
+	}
+}
+
+.site-header {
+	right: 0;
+	left: 0;
+	top: 0;	
+	z-index: 100;
+	margin-top: 0;
+	position: fixed;
+	border-bottom: $color_grey;
+	@include breakpoint( $tablet ){
+		padding: $block-padding;
+		width: 100%;
+
+	}
+	.container {
+		max-width: 100%;
+	}
+	a {
+		border-bottom: none;
+		&.toggle {
+
+		}
+	}
+}
+
+
+.site-branding {
+	display: table;
+	width: 100%;
+	@include clearfix;
+	@extend .section;
+	.site-title {
+		display: table-cell;
+		width: auto;
+		vertical-align: middle;
+		img {
+			width: 30%;
+			max-width: 125px;
+			float: left;
+		}
+	}
+	@include breakpoint( $tablet ){
+		display: block;
+		padding: 0;
+		float: left;
+		width: 125px;
+		.site-title {
+			float: none;
+			width: 100%;
+			img {
+				width: 100%;
+			}
+		}
+	} 
+		a {
+		display: block;
+		opacity: .8;
+		@include transition(all, 0.3s, ease-in-out); 
+		&:hover {
+			opacity: 1;
+			@include transition(all, 0.3s, ease-in-out); 
+		}
+	}
+}
+
+.no-js .site-branding {
+	float: none;
+	@include breakpoint($tablet){
+		float: left;
+	}
+}
+
+#pre-header-search {
+	@include breakpoint($tablet){
+		display: none;
+	}
+}
+
+#nav-bar-search  {
+
+	@include breakpoint($tablet){
+		display: block;
+		float: right;
+
+		form {
+			padding: 0;
+			color: $color-text-pre-header;
+
+
+			label {
+				padding: 0;
+			}
+
+
+
+			input[type="search"] {
+				margin: 0;
+			}
+		}
+	}
+}
+
+/* Hidden Search in Nav */
+
+#nav-bar-search {
+	@include breakpoint( $tablet ){
+  		z-index: 1;
+  		padding: 10px;
+	}
+
+	input[type="search"] {
+		display: block;
+
+	}
+
+	input[type=submit] {
+		display: none;
+	}
+
+} 
+
+.js #nav-bar-search {
+	@include breakpoint( $tablet ){
+		display: none;
+  		position: absolute;
+  		right: 1.5em;
+  		top: 0;
+  		z-index: 1;
+  		padding: 0;
+ 		@include transition(all, 0.3s, ease-in-out);
+	}
+
+
+	input[type=submit] {
+		display: none;
+	}
+
+} 
+
+.js-search-active #nav-bar-search {
+  display: block;
+  @include transition(all, 0.3s, ease-in-out); 
+} 
+
+.site-header {
+
+	@include transition(all, 0.3s, ease-in-out);
+	&.section {
+	}
+	h1 {
+		margin: 0;
+	}
+}
+
+.js-nav-active .site-header {
+ 	@include transition(all, 0.3s, ease-in-out); 	
+}
+
+.js-search-active .site-header {
+ 	@include transition(all, 0.3s, ease-in-out); 	
+}
+
+

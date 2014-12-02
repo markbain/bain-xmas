@@ -1,0 +1,163 @@
+/* =========================================================================
+   Forms
+   ========================================================================= */
+	
+	// Comments
+	// Sign up i.e. MailChimp, Subscribe by Email
+	// Contact i.e. Contact Form 7
+
+form {
+	@include clearfix; // Likely to contain floats
+	@include add-grid(24 at 480px); // Set up grid
+	@include add-gutter(1/3); // Set up gutter
+	label {
+		@extend .meta; // Apply meta class to label
+		display: block; // Make block level
+		text-align: left;
+		padding-bottom: 5px;
+		@include breakpoint( $mobile ) {
+		}
+		@include breakpoint( $tablet ) {
+		}	
+	}
+	&#commentform {
+		p {
+			width: 100%;
+			@include breakpoint( $mobile-horizontal ){
+				&.username {
+					@include grid-span(8, 1);
+				}
+				&.emailaddress {
+					@include grid-span(8, 9);
+				}
+				&.url {
+					@include grid-span(8, 17);
+				}	
+				&.comment-form-comment {
+					@include grid-span(24, 1);
+				}
+				&.form-submit {
+					@include grid-span(24, 1);
+				}
+			}
+		}
+	}
+	&#mc-embedded-subscribe-form {
+		p {
+			@include breakpoint( $mobile-horizontal ){
+				&.username {
+					width: 50%;
+					display: table-cell;
+					padding-right: 10px;
+				}
+				&.emailaddress {
+					width: 50%;
+					display: table-cell;
+					padding-right: 10px;
+				}
+				&.signin { /* The sign up button */
+					@include cta-primary;
+					display: block;
+					width: 100%;
+					@include breakpoint( $mobile ) {
+						display: table-cell;
+						width: auto;
+					}
+					@include breakpoint( $tablet ) {
+						margin: 0;
+						padding: 0;
+						vertical-align: bottom;
+						input {
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Contact Form 7 */
+
+div.wpcf7 {
+	margin: 0;
+	padding: 0;
+}
+
+div.wpcf7-response-output {
+	padding: 3%;
+}
+
+div.wpcf7-mail-sent-ok {
+	background: url(../img/noise.png) repeat, rgba(93,135,138,1);
+	font-weight: bold;
+}
+
+div.wpcf7-mail-sent-ng {
+	font-weight: bold;
+	color: #fff;
+	background: url(../img/noise.png) repeat, rgba(166,59,44,1);
+}
+
+div.wpcf7-spam-blocked {
+	font-weight: bold;
+	color: #fff;
+	background: url(img/noise.png) repeat, #333;
+}
+
+div.wpcf7-validation-errors {
+	font-weight: bold;
+	color: #fff;
+	background: url(img/noise.png) repeat, #88b7d5;
+}
+
+span.wpcf7-form-control-wrap {
+	position: relative;
+}
+
+span.wpcf7-not-valid-tip {
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	z-index: 100;
+	color: #fff;
+	background: url(../img/noise.png) repeat, rgba(166,59,44,1);
+	font-size: 10pt;
+	text-align: center;
+	width: 280px;
+	padding: 3%;
+}
+
+span.wpcf7-not-valid-tip-no-ajax {
+	color: #f00;
+	font-size: 10pt;
+	display: block;
+}
+
+span.wpcf7-list-item {
+	margin-left: 0.5em;
+}
+
+.wpcf7-display-none {
+	display: none;
+}
+
+div.wpcf7 img.ajax-loader {
+	position: absolute;
+	border: none;
+	vertical-align: middle;
+}
+
+div.wpcf7 div.ajax-error {
+	display: none;
+}
+
+div.wpcf7 .placeheld {
+	color: #888;
+}
+
+textarea {
+	@extend input;
+	@extend blockquote;
+	margin: 0; // In a <p> tag
+}

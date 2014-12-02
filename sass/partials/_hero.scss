@@ -1,0 +1,133 @@
+body.home {
+//		background: url(assets/images/hero-bg.jpg) no-repeat;
+// 	background-size: cover;
+}
+
+.hero {
+	color: #fff;
+	text-align: center;
+	padding-bottom: 0;
+	@include clearfix;
+	position: relative;
+	// z-index: -1;
+	
+	background: url("assets/images/office-hero.jpg") no-repeat transparent;
+	background-position: center center;
+	// background-color: $color_background-hero;
+	background-size: cover;
+	@include add-grid(24 at 480px);
+	@include add-gutter(1/3);
+	@include breakpoint( $tablet ){
+
+	} 
+	
+	/* Headings */
+	// h1 {color: $color_heading-1-hero;}
+	h2 {color: $color_heading-2-hero;}
+	h3 {color: $color_heading-3-hero;}
+	h4 {color: $color_heading-4-hero;}
+	h5 {color: $color_heading-5-hero;}
+	h6 {color: $color_heading-6-hero;}
+
+	.container {
+		background: transparent;
+		@include breakpoint($tablet) {
+			// background: url('assets/images/hero-background.jpg') no-repeat bottom right;
+		}
+	}
+
+
+
+	.hero-image {
+		display: none;
+		margin: 0 auto;
+		padding: 0;
+		@include breakpoint( $tablet ) {
+			display: block;
+				// position: absolute;
+				// top: -140px;
+			//	right: -608px;
+			width: 30%;
+		}
+
+	}
+	.hero-text {
+
+		padding-top: 1em;
+		@include breakpoint( $tablet ) {
+			width: 50%;
+			margin: 0 auto;
+			
+		}
+
+	}
+
+	a {
+		border-bottom: none;
+	}
+}
+
+
+.hero {
+	position: relative;
+	text-align: center;
+
+	@include breakpoint($tablet) {
+	}
+	a {
+		display: block;
+		width: 100%;
+		&.cta-primary {
+			@include cta-primary;
+			margin: 0 0 1em 0;
+			@include breakpoint($tablet) {
+				margin: 0 20px 0 0;
+			}
+		}
+		&.cta-secondary {
+			@include cta-secondary;
+		}
+	}
+
+	.hero-cta {
+		@include clearfix;
+		div {
+			width: 100%;
+			@include breakpoint( $mobile){
+				display: inline-block;
+				width: auto;
+			}
+		}	
+	}
+}
+
+// Modifications to the basic hero module for the home page
+
+.home .hero {
+
+	// Headers & typography
+
+
+
+	.hero-cta {
+				a {
+					padding: 1em; // Extra pad for bigness!
+				}
+		@include clearfix;
+		@include breakpoint($mobile-horizontal){
+			margin-bottom: 1em;
+		}
+		@include breakpoint($tablet){
+			margin-bottom: 2em;
+		}
+
+	}
+	#lead {
+		@include breakpoint($tablet){
+			margin-bottom: 2em;
+		}
+	}
+}
+
+
+

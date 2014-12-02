@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+html, 
+body,
+#page {
+	height: 100%; /* Important for sticky footer */
+}
+
+.section {
+	width: 100%;
+	padding: 1em 3%;
+	@include breakpoint($tablet) {
+		padding: 3em 3%;
+	}
+
+	.container {
+		position: relative; // Allow absolute positioning of elements
+		max-width: $container-width;
+		margin: 0 auto; // Centre the container on the page.
+		@include clearfix; // Likely to contain floated elements i.e. columns
+	}
+}
+
+/* Right sidebar */
+
+.right-sidebar #primary {
+	@include breakpoint($tablet) {
+		float: left;
+		margin: 0 -25% 0 0;
+	}
+	width: 100%;
+}
+
+.right-sidebar .site-main {
+	@include breakpoint($tablet) {
+		margin: 0 25% 0 0;
+	}
+}
+
+.right-sidebar .site-content .widget-area {
+	@include breakpoint($tablet) {
+		float: right;
+		overflow: hidden;
+		width: 25%;
+	}
+}
+
+/* Left sidebar */
+
+.left-sidebar #primary {
+	width: 100%;
+	@include breakpoint($tablet) {
+		float: left;
+		margin: 0 -100% 0 0;
+	}
+}
+
+.left-sidebar .site-main {
+	@include breakpoint($tablet) {
+		margin-left: 25%;
+	}
+}
+
+.left-sidebar .site-content .widget-area {
+	@include breakpoint($tablet) {
+		float: left;
+		overflow: hidden;
+		width: 25%;
+	}
+}
+
+.right-sidebar
+
+/* Menu */
+
+ul.nav-menu li a {
+	padding: 5px $side-padding;
+}
+
+
+
+
+/* Search */
+
+input[type="search"] {
+		color: $color_white; // Input color
+		background: transparent;
+   	border-width: 0;
+    	padding: $block-padding;
+	}
+
+
+::-webkit-input-placeholder {
+   color: rgba(0,0,0,.4);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: red;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: red;  
+}
+
+:-ms-input-placeholder {  
+   color: red;  
+}
+
+a#search-toggle {
+	float: left;
+}
+
+/* Right sidebar */
+
+.media_block {
+	@include clearfix;
+	.media_block-text {
+		width: 100%;
+		@include breakpoint($tablet) {
+
+		}
+
+	}
+	.media_block-image {
+		text-align: center;
+		@include breakpoint($tablet) {
+
+		}
+		img {
+			margin-bottom: 1em;
+			max-width: 66px;
+		}
+	}
+}
+
+

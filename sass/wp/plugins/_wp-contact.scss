@@ -1,0 +1,88 @@
+div.wpcf7 img.ajax-loader {
+
+width: auto;
+}
+
+/* =============================================================================
+    PLUG-INS
+    =========================================================================== */	
+/* =============================================================================
+    Contact Form 7
+    =========================================================================== */
+div.wpcf7 {
+	margin: 0;
+	padding: 0;
+}
+
+div.wpcf7-response-output {
+	@extend .textblock !optional;
+	margin: 0;
+	padding: $block-padding;
+}
+
+div.wpcf7 .screen-reader-response {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	width: 1px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+span.wpcf7-form-control-wrap {
+	position: relative;
+}
+
+span.wpcf7-not-valid-tip {
+	color: $color_white;
+	padding: 3px;
+	font-size: 1em;
+	display: block;
+	border: none;
+	background: $color_grey;
+}
+
+.use-floating-validation-tip span.wpcf7-not-valid-tip { 
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	z-index: 100;
+	border: 1px solid #ff0000;
+	background: #fff;
+	padding: .2em .8em;
+}
+
+span.wpcf7-list-item {
+	margin-left: 0.5em;
+}
+
+.wpcf7-display-none {
+	display: none;
+}
+
+div.wpcf7 img.ajax-loader {
+	border: none;
+	vertical-align: middle;
+	margin-left: 4px;
+}
+
+div.wpcf7 div.ajax-error {
+	display: none;
+}
+
+div.wpcf7 .placeheld {
+	color: #888;
+}
+
+div.wpcf7-mail-sent-ng,
+div.wpcf7-mail-sent-ok {
+   border: none;
+}
+
+div.wpcf7-spam-blocked,
+div.wpcf7-validation-errors {
+	@extend span.wpcf7-not-valid-tip;
+}

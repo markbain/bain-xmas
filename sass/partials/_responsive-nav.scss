@@ -1,0 +1,72 @@
+/*! responsive-nav.js 1.0.32 by @viljamis */
+
+.nav-collapse {
+	
+	li {
+	  width: 100%;
+	  display: block;
+	  @include breakpoint( $tablet ){
+	  		width: auto;
+
+		}
+		  
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		display: block;
+		list-style: none;
+		@include breakpoint( $tablet ){
+			display: table-cell;
+			vertical-align: middle;
+			text-align: right;
+		} 
+		ul {
+			
+			ul {
+				@include breakpoint($tablet){
+					width: $width_menu-item;
+					position: absolute;
+					top: 0;
+					left: $width_menu-item;
+				}
+			}
+		}
+	}
+
+	.opened {
+  		max-height: 9999px;
+	}
+}
+
+
+
+.js .nav-collapse {
+  	clip: rect(0 0 0 0);
+  	max-height: none;
+  	position: absolute;
+  	display: block;
+  	overflow: hidden; // hides menu until toggle is clicked
+  	zoom: 1;
+  	@include breakpoint($tablet){
+		display: table; // for vertical positioning
+		overflow: visible; // for dropdown menus 
+	}	  
+  &.closed {
+		max-height: 0;
+		@include breakpoint($tablet){
+			max-height: none;
+		}
+	}
+  @include breakpoint($tablet){
+		position: relative;
+	}
+}
+
+
+
+.disable-pointer-events {
+  pointer-events: none !important;
+}

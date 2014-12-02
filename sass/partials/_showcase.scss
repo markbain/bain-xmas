@@ -1,0 +1,37 @@
+// Showcase module
+
+.showcase {
+	border-bottom: 1px dashed $color_border;
+	@include breakpoint( mobile-horizontal ) {
+		padding-top: 2em;
+	}
+	a {
+		&.media_object {
+			display: block;		
+			width: 100%;
+			margin-bottom: 1em;
+			&:last-of-type {
+				margin-bottom: 0;
+			}						
+			@include breakpoint( mobile-horizontal ) {
+				float: left;
+				width: 32%;
+				margin-right: 2%;
+				&:last-of-type {
+					margin-right: 0;
+				}			
+			}			
+		}
+		&:hover {
+			opacity: .8;
+			text-decoration: none;
+		}
+	}
+
+	.media_objects {
+		@include clearfix;
+		@include breakpoint( mobile-horizontal ) {
+			padding-top: 1.5em;
+		}
+	}
+}

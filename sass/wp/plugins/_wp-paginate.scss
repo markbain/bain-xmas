@@ -1,0 +1,54 @@
+/* WP Plugin -- PageNavi */
+
+.wp-pagenavi {
+	font-family: "tablet-gothic", sans-serif;
+	margin-top: 1em;
+	padding: 0 0 1em;
+	text-align: center;
+	font-weight: bold;
+
+	.pages {
+		display: none;
+	}
+	
+	span {
+		color: darken( $color_grey, 20%);
+		border: 1px solid darken( $color_grey, 20%);
+		background: $color_grey-light;
+	}
+
+	a {
+
+		&:link {
+			text-decoration: none;
+			background: $color_grey-light;
+		}
+
+		&:link, &:visited,  {
+			color: $color_grey;
+			border: 1px solid $color_grey;	
+		}
+
+		&:hover {
+			color: darken( $color_grey, 20%);
+			border: 1px solid darken( $color_grey, 20%);
+		}
+
+	}
+}
+
+.wp-pagenavi a,
+.wp-pagenavi span {
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	padding: 5px;
+	margin: 0 10px 5px 0;
+	bottom: 0;
+	font-size: 16px;	
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	border-radius: 999px;
+	behavior: url(PIE.htc);
+}

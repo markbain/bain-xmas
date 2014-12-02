@@ -1,0 +1,39 @@
+ul.social-media-links {
+	@extend .nobullets !optional;
+	font-size: 1.2em;
+	margin-bottom: 1em;
+	@include breakpoint( $tablet ){
+		font-size: 1.4em;
+	}
+
+	li {
+		display: inline-block;
+		text-align: center;
+		a {
+			padding: .5em .5em .5em 0;			
+			&:link {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// Tweaks
+
+.social {
+	@include breakpoint( $tablet ){
+	  	// float: left;
+		text-align: left;
+		width: 50%;
+	}
+}
+
+ul.social-media-links {
+	@include breakpoint( $tablet ){
+	}	
+
+	li {
+		display: inline-block;
+
+	}
+}

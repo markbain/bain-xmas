@@ -1,0 +1,125 @@
+#comments {
+	
+	#list-comments {
+		background: #e7e7e7;
+	}
+	#form-comments {
+		background: #e3e3e3;
+	}
+	#closed-comments {
+		@extend #form-comments;
+	}
+	ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		div.comment {
+			padding-bottom: 1.5em;
+		}
+
+		li.comment {
+			position: relative; /* Allows avatar to be absolutely positioned */
+			margin-bottom: 1em;
+			@include textblock;
+			@include breakpoint( $tablet ) {
+				padding-left: 56px;
+			}
+			
+		}
+	}
+
+	#reply-title {
+		@extend h2;
+	}
+
+
+}
+
+.comment-author {
+	// margin-left: 40px; /* Shift it for avatar, 32px wide */
+	padding-bottom: 1.8em;
+}
+
+ol.comment-list {
+
+	list-style: none;
+
+	ul {
+		padding: 0;
+	}
+
+	.avatar {
+		@include breakpoint( $tablet ) {
+			position: absolute;
+			top: 4px;
+			left: 0;
+		}
+
+	}
+
+}
+
+
+
+.comment-list li.comment {
+
+
+
+position: relative;
+}
+
+.comment-list .children {
+list-style: none;
+margin: 0;
+}
+
+
+.comment-author {
+	
+	.says {
+		font-style: italic;
+	}
+
+	cite {
+		color: #000;
+		font-style: normal;
+		font-weight: bold;
+	}
+
+}
+.comment-meta {
+	display: block;
+
+	a {
+		color: #777;
+	}
+	
+}
+
+.comment-content {
+	a {
+		word-wrap: break-word;
+	}
+
+
+}
+
+/* Respond */
+
+.comment-respond {
+
+}
+
+/* Comment Form */
+
+.comment-form {
+
+	.form-submit {
+		@include clearfix;
+	}
+}
+
+.says {
+	display: none;
+}

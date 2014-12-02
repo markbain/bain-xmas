@@ -1,0 +1,373 @@
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+ 
+@mixin breakpoint($point, $value: 0) {
+  @if $point == mobile {
+		@media (min-width: 320px) { @content; }
+	}
+ 
+	@else if $point == mobile-horizontal {
+		@media (min-width: 480px) { @content; }
+	}
+ 
+	@else if $point == tablet {
+		@media (min-width: 768px) { @content; }
+	}
+ 
+	@else if $point == tablet-horizontal {
+		@media (min-width: 1024px) { @content; }
+	}
+	
+	@else if $point == desktop {
+		@media (min-width: 1280px) { @content; }
+	}
+ 
+	@else if $point == desktop-wide {
+		@media (min-width: 1500px) { @content; }
+	}
+ 
+	@else {
+		@media ($point: $value) { @content; }
+	}
+}
+ 
+@mixin between-breakpoints($min, $max) {
+	@media (min-width: $min) and (max-width: $max) {
+		@content;
+	}
+}
+ 
+/** Usage:
+ 
+@include breakpoint(tablet) {}
+@include breakpoint(min-width, 1192px) {}
+@include between-breakpoints(0, 1024px) {}
+ 
+**/
+
+/*
+ * Mixin for clearfix
+ * @include clearfix;
+*/
+@mixin clearfix {
+	&:before,
+	&:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	}
+
+	&:after {
+	    clear: both;
+	}
+}
+
+@mixin border {
+	border-bottom: 1px solid $border-color;
+}
+
+@mixin textblock {
+	margin: 0 auto;
+	max-width: $textblock-width;
+}
+
+@mixin outer-block {
+	width: 100%;
+	max-width: 100%;
+	padding: $block-padding;
+	@include border;
+}
+
+
+/*
+ * Mixin for basic CSS triangles
+ * @include triangle(up, #000, 50px)
+*/
+@mixin triangle($direction:up, $color:#000, $size:100px) {
+	@if($direction == up) {
+		border-color: transparent transparent $color;
+		border-style: solid;
+		border-width: 0 $size $size;
+		height: 0;
+		width: 0;
+	}
+	@if($direction == down) {
+		border-color: $color transparent transparent transparent;
+		border-style: solid;
+		border-width: $size;
+		height:0;
+		width:0;
+	}
+	@if($direction == left) {
+		border-color: transparent $color transparent transparent;
+		border-style: solid;
+		border-width: $size $size $size 0;
+		height: 0;
+		width: 0;
+	}
+	@if($direction == right) {
+		border-color: transparent transparent transparent $color;
+		border-style: solid;
+		border-width: $size 0 $size $size;
+		height:0;
+		width:0;
+	}
+}
+
+/*
+ * @font-face mixin
+ * Bulletproof font-face via Font Squirrel
+ * @include fontface('family', 'assets/fonts/', 'myfontname');
+ */
+
+@mixin fontface($font-family, $font-url, $font-name) {
+	@font-face {
+		font: {
+			family: $font-family;
+			style: normal;
+			weight: normal;
+		}
+		src: url($font-url + '/' + $font-name + '.eot');
+		src: url($font-url + '/' + $font-name + '.eot#iefix') format('embedded-opentype'),
+			 url($font-url + '/' + $font-name + '.woff') format('woff'),
+			 url($font-url + '/' + $font-name + '.ttf')  format('truetype'),
+			 url($font-url + '/' + $font-name + '.svg#' + $font-name) format('svg');
+	}
+}
+
+/* Mixin for Call to action buttons */
+
+@mixin cta-primary {
+	
+	padding: 5px 10px;		
+	border-radius: 5px;
+	
+	&:link, &:visited, {
+
+		background: 	$color_background-cta;
+		text-transform: uppercase;
+		color: $color_text-cta;
+		font-family: "tablet-gothic", sans-serif;
+		font-weight: 800;
+		line-height: 1;
+		text-decoration: none;
+		letter-spacing: 2px;
+	}
+
+	&:hover {
+		background: darken(	$color_background-cta, 10%);
+	}
+
+	&:active {
+		background: darken(	$color_background-cta, 15%);
+	}
+
+}
+
+@mixin cta-secondary {
+	&:link, &:visited {
+		color: $color_text-cta-2;
+		font-family: "abril-text", sans-serif;
+		font-weight: 400;
+		font-style: italic;
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: darken($color_text-cta-2, 30%);
+	}
+
+	&:active {
+		color: darken($color_text-cta-2, 50%);
+	}
+}
+
+// Border Radius
+
+// Always a handy mixin. Set every border radius or just a single side without worrying about all those prefixes.
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+   -webkit-border-top-left-radius: $radius;
+   border-top-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+     -webkit-border-top-right-radius: $radius;
+     border-top-right-radius: $radius;
+     background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+   border-bottom-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+     -webkit-border-top-left-radius: $radius;
+     border-top-left-radius: $radius;
+     background-clip: padding-box;
+}
+
+/* Transitions */
+
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+// Example: @include transition(all, 0.3s, ease-in-out);
+
+
+
+
+// Center-align a block level element
+
+// Quickly center any element within its parent. Requires width or max-width to be set.
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Font Size
+
+// This mixin sets the font size in rem's with a px fallback.
+
+@mixin font-size($sizeValue: 12 ){
+  font-size: $sizeValue + px; //fallback for old browsers
+  font-size: (0.125 * $sizeValue) + rem;
+}
+
+// Line Height
+
+// This mixin sets the line height in rem's with a px fallback.
+
+@mixin line-height($heightValue: 12 ){
+	line-height: $heightValue + px; //fallback for old browsers
+	line-height: (0.125 * $heightValue) + rem;
+}
+
+
+// Rem mixin
+// http://davidensinger.com/2013/03/using-rems-with-sass/
+
+@mixin rem($property, $values) {
+  // Create a couple of empty lists as output buffers.
+  $font-size: $base-font-size;
+  $px-values: ();
+  $rem-values: ();
+
+  // Loop through the $values list
+  @each $value in $values {
+    // For each property value, if it's in rem or px, derive both rem and
+    // px values for it and add those to the end of the appropriate buffer.
+    // Ensure all pixel values are rounded to the nearest pixel.
+    @if $value == 0 or $value == 0px {
+      // 0 -- use it without a unit
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      // px value given - calculate rem value from font-size
+      $new-rem-value: $value / $font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == "%") {
+      // % value given - don't add px or rem
+      $px-values: join($px-values, #{$value});
+      $rem-values: join($rem-values, #{$value});
+    } @else if $value == auto {
+      // auto - don't add px or rem
+      $px-values: join($px-values, auto);
+      $rem-values: join($rem-values, auto);
+    } @else {
+      // unitless value - use those directly as rem and calculate the px-fallback
+      $px-values: join($px-values, round($value * $font-size));
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+
+  // output the converted rules
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
+}
+@mixin box-shadow($horizontal: 0px, $vertical: 1px, $blur: 2px, $color: #CCC) {
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  -moz-box-shadow: $horizontal $vertical $blur $color;
+  box-shadow: $horizontal $vertical $blur $color;
+}
+
+@mixin palette-2 {
+	h1, h2, h3, h4, h5, h6 {
+		color: $color_black;
+	}
+	background: $color_blue;
+	a {
+		&:link, &:visited {
+			color: $color_white;
+			border-bottom: 1px solid rgba(0,0,0,.1);
+		}
+		&:hover {
+			border-bottom: 1px solid rgba(0,0,0,.3);
+		}
+		&:active {
+			border-bottom: 1px solid rgba(0,0,0,.6);
+		}
+	}
+}
+
+@mixin palette-3 { /* Blue on Yellow */
+	h1, h2, h3, h4, h5, h6 {
+		color: $color_blue;
+	}
+	background-color: $color_yellow;
+	a {
+		&:link, &:visited {
+			color: $color_blue;
+			border-bottom: 1px solid rgba(0,0,0,.1);
+		}
+		&:hover {
+			border-bottom: 1px solid rgba(0,0,0,.3);
+		}
+		&:active {
+			border-bottom: 1px solid rgba(0,0,0,.6);
+		}
+	}
+}
+
+@mixin palette-4 { /* Yellow on Red */
+	h1, h2, h3, h4, h5, h6 {
+		color: $color_yellow;
+	}
+	background-color: $color_red;
+	a {
+		&:link, &:visited {
+			color: $color_yellow;
+			border-bottom: 1px solid rgba(0,0,0,.1);
+		}
+		&:hover {
+			border-bottom: 1px solid rgba(0,0,0,.3);
+		}
+		&:active {
+			border-bottom: 1px solid rgba(0,0,0,.6);
+		}
+	}
+}

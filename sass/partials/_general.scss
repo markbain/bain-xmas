@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Border-box all the things!
+   ========================================================================== */
+
+*,
+:before,
+:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   General
+   ========================================================================== */
+
+body {
+	color: $color_text;
+	background: #ddd;
+	text-align: center;
+	font-family: 'Ubuntu', sans-serif;
+	@include breakpoint( $mobile-horizontal ) {
+		// text-align: left;
+	}
+}
+
+::-moz-selection {
+	background: $color_text-selection;
+}
+
+::selection {
+	background: $color_text-selection;
+}
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+a {
+	border-bottom: 1px solid $color_text-anchor;
+	text-decoration: none;
+	@include transition(all, 0.3s, ease-in-out);
+	&:link {
+		color: $color_text-anchor;
+		@include transition(all, 0.3s, ease-in-out);
+	}
+	&:visited {
+		color: $color_text-anchor;
+		@include transition(all, 0.3s, ease-in-out);
+	}
+	&:hover {
+		color: $color_text-anchor-hover;
+		border-bottom: 2px solid $color_text-anchor-hover;
+		@include transition(all, 0.3s, ease-in-out);
+	}
+}
+
+
+/* ==========================================================================
+   Images
+   ========================================================================== */
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	margin: 0.5em 0;
+	clear: both;
+	// font-family: 'Alfa Slab One', sans-serif;
+
+	a {
+		border-bottom: none;
+	}
+}
+
+h1 {
+	@extend .h1 !optional;
+	&.page-title {
+		@extend .meta-label;
+	}
+}
+
+h2 {
+	@extend .h2 !optional;
+}
+h3 {
+	@extend .h3 !optional;
+}
+h4 {
+	@extend .h4 !optional;
+}
+h5 {
+	@extend .h4 !optional;
+}
+h6 {
+	@extend .h4 !optional;
+}
+
+.h1 {	
+	font-size: 3.998em;
+	margin-top: 0;
+
+	line-height: .85; 
+	text-transform: none;
+}
+
+.h2 { 
+	font-size: 2.827em;
+
+	font-weight: 900; 
+}
+
+.h2-meta { 
+	@extend .meta;
+
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 300;
+}
+
+
+.h3 { 
+	font-size: 1.999em;
+}
+
+.h4 { 
+	font-size: 1.414em;
+}
+
+small, .font_small {
+	font-size: 0.707em;
+}
+
+p {
+	margin: 0 0 1em 0; // Browser will set "margin-before", so be explicit!
+}
+
+blockquote {
+	@extend .h4 !optional;
+	font-weight: 500;
+	margin: 0 0 2em 0;
+	// font-style: italic;
+	position: relative;
+	&:before {
+		@extend .h1;
+		content: '“';
+		line-height: 1;
+		position: absolute;
+		text-align: center;
+		left: -9px; /* Hand made :) */
+		width: 100%;
+		@include breakpoint( $tablet ){
+			position: relative;
+			padding: 0;
+			font-family: sans-serif;
+			font-style: normal;
+			font-size: 8em;
+			height: 40px;
+			overflow: hidden;
+		}
+	}
+
+	p {
+		@include breakpoint( $tablet ){
+		}
+	}
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+.amp {
+	font-family: Baskerville, Palatino, "Book Antiqua", sans-serif;
+	font-style: italic;
+}
+
+ul {
+	&.nobullets { // to be used as @extend
+		margin: 0; 
+		padding: 0;
+		list-style-type: none;
+	}
+}
+	
+
+/* ==========================================================================
+   Alignment
+   ========================================================================== */
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   Accessiblity
+   ========================================================================== */
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/* ==========================================================================
+   Clearings
+   ========================================================================== */
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: '';
+	display: table;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+
+/* ==========================================================================
+   Infinite Scroll
+   ========================================================================== */
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+	display: block;
+}

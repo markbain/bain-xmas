@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+	font-family: 'tablet-gothic', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	.container {
+		max-width: 100%;
+	}
+	.site-info {
+		margin-bottom: 1em;
+		@extend .font_small !optional;
+		@include breakpoint( $tablet ){	
+			float: left;
+			width: 50%;
+			text-align: left;
+		}
+	}
+
+	a {
+		border-bottom: none;
+
+		&:link {
+			color: $color_white;
+		}
+		&:visited {
+	 		color: $color_white;
+		}
+		&:hover {
+			color: $color_white-bright;;
+		}
+		&:active {
+		}
+	}
+}
+
+#footer-widgets {
+	aside {
+		padding: 1%;
+	}
+}
+
+#back-to-top {
+	@include breakpoint( $tablet ){	
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+#copyright {
+	margin-bottom: 10px;
+}
+
+#signup {
+	
+	h2 {
+		margin-top: .5em;
+		i {
+			&.fa-envelope {
+				display: block;
+				@include breakpoint( $tablet ) {
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+#contact {
+}
+
+/* Visit */
+
+#visit {
+	background: url("assets/images/map1.png") no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
