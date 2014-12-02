@@ -1,5 +1,5 @@
 {
-  "name": "dn-digital",
+  "name": "mbd-boilerplate-html",
   "version": "0.0.0",
   "authors": [
     "Mark Bain <hello@markbaindesign.com>"
@@ -15,9 +15,8 @@
   ],
   "dependencies": {
     "modernizr": "~2.6.2",
-    "singularity": ">=1.4.0",
-    "fontawesome": ">=4.2.0",
-	"svg-morpheus": "~0.1.7",
+    "singularity": "~1.4.0",
+    "fontawesome": "~4.2.0",
 	"modular-scale": "~2.0.3"
   }
 }
