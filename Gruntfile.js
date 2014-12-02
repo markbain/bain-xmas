@@ -141,6 +141,12 @@ module.exports = function(grunt) {
 				 src: ['bower_components/fontawesome/fonts/*'],
 				 dest: 'httpdocs/assets/fonts'
 			},
+			modernizr: {
+				 expand: true,
+				 flatten: true,
+				 src: ['bower_components/modernizr/modernizr.js'],
+				 dest: 'httpdocs/assets/js/source/vendor'
+			},
 		},
 
 		clean: {
@@ -182,7 +188,8 @@ module.exports = function(grunt) {
 	
 	// Copy assets from bower_components to theme dir
 	grunt.registerTask('copybower', [
-		'copy:font_awesome'
+		'copy:font_awesome',
+		'copy:modernizr'
 	]);	
 
 };
