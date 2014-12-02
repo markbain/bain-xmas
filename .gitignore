@@ -9,7 +9,8 @@ bower_components
 .htaccess
 sitemap.xml
 sitemap.xml.gz
-release/**
+release
+.tmp
 
 # =========================
 # VIM Temp Files
