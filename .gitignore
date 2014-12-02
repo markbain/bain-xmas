@@ -4,22 +4,18 @@
 node_modules
 bower_components
 .sass-cache
+*.map
+*.log
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+release/*
 
 # =========================
 # VIM Temp Files
 # =========================
 *~
 *.swp
-
-# =========================
-# WordPress 
-# =========================
-
-*.log
-.htaccess
-sitemap.xml
-sitemap.xml.gz
-
 
 # =========================
 # Operating System Files
@@ -43,7 +39,3 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
-httpdocs/wp-content/themes/DNDigital/style.css
-*.map
-httpdocs/wp-content/themes/dn-digital/style.css
-httpdocs/wp-content/themes/dn-digital/assets/js/source/vendor/modernizr-custom.js
