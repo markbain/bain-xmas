@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         			"devFile" : "bower_components/modernizr/modernizr.js",
 
         			// Path to save out the built file.
-        			"outputFile" : "httpdocs/assets/js/build/vendor/modernizr-custom.js",
+        			"outputFile" : "httpdocs/assets/js/vendor/modernizr-custom.js",
 		    	}
 
 			},
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                     style: 'expanded',
                 },
                 files: {
-                    'httpdocs/style.css': 'sass/styles.scss',
+                    'httpdocs/assets/css/style.css': 'sass/styles.scss',
                 }
             }
         },
@@ -66,8 +66,8 @@ module.exports = function(grunt) {
             files: {
                 expand: true,
                 flatten: true,
-                src: 'httpdocs/style.css',
-                dest: 'httpdocs'
+                src: 'httpdocs/css/style.css',
+                dest: 'httpdocs/css'
             },
         },
 
@@ -79,13 +79,26 @@ module.exports = function(grunt) {
     			}
   			},
 
+	
+
+		// Usemin
+		useminPrepare: {
+	      html: 'httpdocs/index.html',
+	     	options: {
+      		dest: 'release/<%= pkg.name %>.<%= pkg.version %>'
+    		}
+	  },
+	  usemin:{
+	  	html: 'release/<%= pkg.name %>.<%= pkg.version %>/index.html',
+	  },
+
 		 // Version
 		 version: {
 		 	css: {
         		options: {
             	prefix: 'Version\\:\\s'
         		},
-        		src: [ 'httpdocs/style.css' ],
+        		src: [ 'httpdocs/assets/css/source/style.css' ],
    		}
 		},
 
@@ -101,8 +114,10 @@ module.exports = function(grunt) {
                 'httpdocs/assets/js/source/**/*.js'
             ]
         },
+			
+	
 
-
+	
 
         // image optimization
         imagemin: {
@@ -114,9 +129,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'httpdocs/assets/images/',
+                    cwd: 'httpdocs/release/assets/images/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'httpdocs/assets/images/'
+                    dest: 'httpdocs/release/assets/images/'
                 }]
             }
         },
@@ -130,10 +145,12 @@ module.exports = function(grunt) {
 					cwd: 'httpdocs/',
 					src: [
 						'**',
-						'!style.css.map'
+						'!assets/css/**',
+						'!assets/js/**',					
+						
 					], 
 					dest: 'release/<%= pkg.name %>.<%= pkg.version %>/'},
-					],
+				],
 			},
 			font_awesome: {
 				 expand: true,
@@ -150,7 +167,12 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			main: ['release/<%= pkg.name %>.<%= pkg.version %>']
+			main: [
+				'release/<%= pkg.name %>.<%= pkg.version %>'
+			],		
+			temp: [
+				'.tmp'
+			],		
 		},
 
 		compress: {
@@ -177,13 +199,17 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('build', [
-		'autoprefixer',
 		'bump',
 		'version',
-		'copy', 
+		'copy', 		
+		'useminPrepare',
+			'concat',
+			'uglify',
+			'cssmin',
+		'usemin',
 		'imagemin',
-		'compress',
-		'clean'
+		//'compress',
+		//'clean',
 	]);
 	
 	// Copy assets from bower_components to theme dir
