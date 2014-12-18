@@ -70,29 +70,3 @@
 .clearfix:after {
     clear: both;
 }
-
-/* Buttons */
-
-.button {
-  	display: inline-block;
-	@include border-radius(5px);
-	padding: .77em;	
-	text-align: center;
-
-
-	&:link, &:visited {
-		text-decoration: none;
-		border-bottom: none;
-	}
-
-
-	&:hover {
-		text-decoration: none;
-		border-bottom: none;
-	}
-
-	&:active {
-		text-decoration: none;
-		border-bottom: none;
-	}
-}

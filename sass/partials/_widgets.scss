@@ -3,9 +3,12 @@
    ========================================================================== */
 
 .widget-area {
+	background: darken($base-color-alt, 3%);
+	color: $text-color-alt;
 }
 
 .widget {
+	background: rgba(0,0,0,.05);
 	margin: 0 0 1.5em;
 }
 

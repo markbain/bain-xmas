@@ -15,15 +15,16 @@
 	$color_grey-light: 		darken($color_white, 10%);
 
 
-	/* BBWondrousWovenMagic */
+	/* Paul Smith Jumper */
+	/* http://www.paulsmith.co.uk/eu-en/shop/campaigns/mens/performance-outerwear/men-s-geometric-colour-block-wool-blend-sweater.html*/
 
-	/* http://www.colourlovers.com/palette/3532789/BBWondrousWovenMagic */
-
-	$color_cape-palliser:				#A66E42; 	// palette-1
-	$color_leather:						#916453; 	// palette-2
-	$color_falcon:							#755669; 	// palette-3
-	$color_victoria-1:					#59497F; 	// palette-4
-	$color_victoria-2:					#433F90; 	// palette-5
+	$color_black-psj:			lighten(#1B1A18, 10%); 	// palette-5
+	$color_brown-psj:			lighten(#564E39, 10%); 	// palette-1
+	$color_red-psj:			lighten(#9F290B, 10%); 	// palette-6
+	$color_pink-psj:			lighten(#E67770, 0%); 	// palette-7
+	$color_blue-psj:			lighten(#2A575D, 10%); 	// palette-4
+	$color_navy-psj:			lighten(#222933, 10%); 	// palette-2
+	$color_aubergine-psj:	lighten(#392023, 10%); 	// palette-3
 
 /* Link color names to descriptive names 
 	Use these values outside of this stylesheet!
@@ -35,6 +36,6 @@
 
 
 	
-	$color_text-selection: 				$color_victoria-2;
-	// $color_background-cta:				$color_red-psj;
-	//$color_background-cta-2:			$color_white;
+	$color_text-selection: 				$color_pink-psj;
+	$color_background-cta:				$color_red-psj;
+	$color_background-cta-2:			$color_white;

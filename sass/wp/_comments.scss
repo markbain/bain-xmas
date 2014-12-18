@@ -1,14 +1,5 @@
 #comments {
-	
-	#list-comments {
-		background: #e7e7e7;
-	}
-	#form-comments {
-		background: #e3e3e3;
-	}
-	#closed-comments {
-		@extend #form-comments;
-	}
+	margin-top: 2em;
 	ol {
 		margin: 0;
 		padding: 0;
@@ -22,15 +13,11 @@
 			position: relative; /* Allows avatar to be absolutely positioned */
 			margin-bottom: 1em;
 			@include textblock;
-			@include breakpoint( $tablet ) {
+			@include breakpoint( tablet ) {
 				padding-left: 56px;
 			}
 			
 		}
-	}
-
-	#reply-title {
-		@extend h2;
 	}
 
 
@@ -50,7 +37,7 @@ ol.comment-list {
 	}
 
 	.avatar {
-		@include breakpoint( $tablet ) {
+		@include breakpoint( tablet ) {
 			position: absolute;
 			top: 4px;
 			left: 0;
@@ -64,7 +51,8 @@ ol.comment-list {
 
 .comment-list li.comment {
 
-
+line-height: 24px;
+margin: 0 0 24px 0;
 
 position: relative;
 }
@@ -108,7 +96,7 @@ margin: 0;
 /* Respond */
 
 .comment-respond {
-
+	padding-top: 2em;
 }
 
 /* Comment Form */

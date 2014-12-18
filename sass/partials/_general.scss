@@ -16,43 +16,36 @@
    ========================================================================== */
 
 body {
-	color: $color_text;
-	background: #ddd;
-	text-align: center;
-	font-family: 'Ubuntu', sans-serif;
-	@include breakpoint( $mobile-horizontal ) {
-		// text-align: left;
-	}
+
 }
 
-::-moz-selection {
-	background: $color_text-selection;
-}
 
-::selection {
-	background: $color_text-selection;
-}
 /* ==========================================================================
    Links
    ========================================================================== */
 
 a {
-	border-bottom: 1px solid $color_text-anchor;
-	text-decoration: none;
-	@include transition(all, 0.3s, ease-in-out);
+
 	&:link {
-		color: $color_text-anchor;
-		@include transition(all, 0.3s, ease-in-out);
+		color: $link-color;
+		text-decoration: $link-decoration;
 	}
+
 	&:visited {
-		color: $color_text-anchor;
-		@include transition(all, 0.3s, ease-in-out);
+		color: $link-color;
+		text-decoration: $link-decoration;
 	}
+
 	&:hover {
-		color: $color_text-anchor-hover;
-		border-bottom: 2px solid $color_text-anchor-hover;
-		@include transition(all, 0.3s, ease-in-out);
+		color: darken($link-color, 10%);
+		text-decoration: $hover-decoration;
 	}
+
+	&:active {
+		color: darken($link-color, 30%);
+		text-decoration: $hover-decoration;
+	}
+
 }
 
 
@@ -63,6 +56,10 @@ a {
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
+
+	@include breakpoint( tablet ) {
+		width: auto; 
+	}
 }
 
 
@@ -70,127 +67,132 @@ img {
    Typography
    ========================================================================== */
 
+body {
+	font-family: "adelle", sans-serif;
+	font-size: $base-font-size;
+}
 
-.h1, .h2, .h3, .h4, .h5, .h6 {
-	margin: 0.5em 0;
+.textblock {
+	@include rem(max-width, 600px);
+}
+
+
+h1, h2, h3, h4, h5, h6 { // Common header styles
+	font-family: 
+		"adelle", 
+		sans-serif;
+	font-style: normal;
 	clear: both;
-	// font-family: 'Alfa Slab One', sans-serif;
+	color: $mid-grey;
+	text-shadow: 1px 1px 1px #fff;
 
-	a {
-		border-bottom: none;
+	@include breakpoint( tablet ) {
+		padding: 0;
+	}
+
+	&.hero { // Common hero header styles
+		@include breakpoint( tablet ) {		
+			color: $white;
+		}
 	}
 }
 
 h1 {
-	@extend .h1 !optional;
-	&.page-title {
-		@extend .meta-label;
+ font-size: 3.0000em; /* 48px */
+  line-height: 1.0000em; /* 48px */
+  margin-bottom: 0.5000em;  
+  margin-top: 0.0000em;
+	font-family: "adelle";
+	font-weight: 900;
+	text-transform: uppercase;
+	&#site-title {
+		padding: 0;
 	}
 }
 
 h2 {
-	@extend .h2 !optional;
-}
+  font-size: 2.2500em; /* 36px */
+  line-height: 1.3333em; /* 48px */
+  margin-bottom: 0.6667em;  
+  margin-top: 0.0000em;
+
+}		
+
 h3 {
-	@extend .h3 !optional;
-}
-h4 {
-	@extend .h4 !optional;
-}
-h5 {
-	@extend .h4 !optional;
-}
-h6 {
-	@extend .h4 !optional;
-}
+	font-size: 1.5000em; /* 24px */
+	line-height: 1.0000em; /* 24px */
+	margin-bottom: 1.0000em;  
+	margin-top: 0.0000em;
+}	
 
-.h1 {	
-	font-size: 3.998em;
-	margin-top: 0;
+ h4 {  font-size: 1.3125em; /* 21px */
+  line-height: 1.1429em; /* 24px */
+  margin-top: 0;  
+  margin-bottom: 0;}
+ 
+ h5 {  
+	font-size: 1.1250em; /* 18px */
+  line-height: 1.3333em; /* 24px */
+  margin-bottom: 1.3333em;  
+  margin-top: 0.0000em;
+  }
+  
+h6 {  
+	font-size: 1.1250em; /* 18px */
+  line-height: 1.3333em; /* 24px */
+  margin-bottom: 1.3333em;  
+  margin-top: 0.0000em;
+  color: #999;
+  }
 
-	line-height: .85; 
-	text-transform: none;
-}
-
-.h2 { 
-	font-size: 2.827em;
-
-	font-weight: 900; 
-}
-
-.h2-meta { 
-	@extend .meta;
-
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: 300;
-}
-
-
-.h3 { 
-	font-size: 1.999em;
-}
-
-.h4 { 
-	font-size: 1.414em;
-}
-
-small, .font_small {
-	font-size: 0.707em;
-}
-
-p {
-	margin: 0 0 1em 0; // Browser will set "margin-before", so be explicit!
-}
-
-blockquote {
-	@extend .h4 !optional;
-	font-weight: 500;
-	margin: 0 0 2em 0;
-	// font-style: italic;
-	position: relative;
-	&:before {
-		@extend .h1;
-		content: '“';
-		line-height: 1;
-		position: absolute;
-		text-align: center;
-		left: -9px; /* Hand made :) */
-		width: 100%;
-		@include breakpoint( $tablet ){
-			position: relative;
-			padding: 0;
-			font-family: sans-serif;
-			font-style: normal;
-			font-size: 8em;
-			height: 40px;
-			overflow: hidden;
-		}
-	}
-
+	
 	p {
-		@include breakpoint( $tablet ){
+	margin-bottom: 1em;
+	@extend .textblock;
+}
+ 
+.fancy {
+	font-family: "tamarillo";
+}
+.entry-content blockquote {
+	@extend h2;
+	margin: 0;
+	font-style: italic;
+	position: relative;
+	max-width: 100%;
+	&>p {
+		max-width: 100%;
+		&:before {
+			content: '"';
 		}
 	}
+}
+
+/* Lists */
+
+// Bullets & numerals should hang outside the main text box if there's enough space
+
+ul, ol {
+	padding-bottom: 1em;
+	list-style-position: inside;
+
+	@include breakpoint( tablet ) {
+		list-style-position: outside;		
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+
 }
 
 address {
-	margin: 0 0 1.5em;
+	margin: 0 0 1em;
 }
 
 .amp {
 	font-family: Baskerville, Palatino, "Book Antiqua", sans-serif;
 	font-style: italic;
 }
-
-ul {
-	&.nobullets { // to be used as @extend
-		margin: 0; 
-		padding: 0;
-		list-style-type: none;
-	}
-}
-	
 
 /* ==========================================================================
    Alignment

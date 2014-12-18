@@ -15,7 +15,7 @@ div.wpcf7 {
 }
 
 div.wpcf7-response-output {
-	@extend .textblock !optional;
+	@extend .textblock;
 	margin: 0;
 	padding: $block-padding;
 }
@@ -37,12 +37,12 @@ span.wpcf7-form-control-wrap {
 }
 
 span.wpcf7-not-valid-tip {
-	color: $color_white;
+	color: $white;
 	padding: 3px;
 	font-size: 1em;
 	display: block;
 	border: none;
-	background: $color_grey;
+	background: $mid-grey;
 }
 
 .use-floating-validation-tip span.wpcf7-not-valid-tip { 

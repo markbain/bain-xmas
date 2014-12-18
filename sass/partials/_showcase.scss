@@ -1,7 +1,8 @@
 // Showcase module
 
 .showcase {
-	border-bottom: 1px dashed $color_border;
+	background-repeat: repeat;	
+	border-bottom: 2px solid $light_grey;
 	@include breakpoint( mobile-horizontal ) {
 		padding-top: 2em;
 	}

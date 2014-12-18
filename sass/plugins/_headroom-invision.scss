@@ -1,0 +1,20 @@
+/* Headroom.js */
+/* à la http://www.invisionapp.com/ */
+
+.js {
+	.site-header {
+		&.headroom--not-top {
+			background: $white;
+			border-bottom: 2px solid $light-grey;
+			@extend .animated;
+			@extend .fadeInDown;
+		}
+		&.headroom--not-top.headroom--unpinned {
+
+		}
+		&.headroom--not-top.headroom--pinned {
+			@extend .animated;
+			@extend .fadeOutUp;
+		}
+	}
+}	

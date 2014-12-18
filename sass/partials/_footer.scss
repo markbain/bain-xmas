@@ -1,80 +1,113 @@
 /* ==========================================================================
    Footer
    ========================================================================== */
+
 .site-footer {
-	font-family: 'tablet-gothic', sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	.container {
-		max-width: 100%;
+	background-color: $white;
+	color: $black;
+	text-align: right;
+	background-image: url('../images/footer.png');
+	background-repeat: none;
+	background-position: top left;
+	background-size: cover;
+	min-height: 400px;
+	@include breakpoint(tablet) {
+		height: $sticky-footer-height; 
 	}
-	.site-info {
-		margin-bottom: 1em;
-		@extend .font_small !optional;
-		@include breakpoint( $tablet ){	
-			float: left;
-			width: 50%;
-			text-align: left;
+
+	.container {
+
+		&>div {
+			@include breakpoint(tablet) {
+
+			}
+
+			.social {
+				text-align: right;
+			}
+		}
+	}
+
+	p {
+		max-width: 100%;
+		margin: 0 0 1em 0;
+	}
+
+	h4 {
+		margin-bottom: .5em;
+	}
+
+	ul {
+
+		padding: 0;
+		margin: 0;
+		margin-left: 50%;
+		@include breakpoint(tablet) {
+		}
+
+		li {
+			margin-bottom: 1em;
+			padding: 0 15px;
+			@include breakpoint(tablet) {
+				padding: 0;
+				margin-left: 15px;
+			}
+
+		}
+	}
+
+ 	a {
+		color: $mid-grey;
+		text-decoration: none;
+	}
+}
+
+.site-footer a:hover {
+	color: darken($black, 10%);
+}
+
+.site-footer a:active {
+	color: darken($link-color-alt, 15%);
+	border-bottom: 1px solid  darken($link-color-alt, 15%); 
+}
+
+.site-footer li {
+	list-style-type: none;
+
+		@include breakpoint(tablet) {
+			font-size: 1em;
+		}
+}
+
+
+
+/* Back to top link */
+#back-to-top {
+	margin-top: 1em;
+	i {
+		&.icon-arrow-up {
+			padding-right: 7px;
 		}
 	}
 
 	a {
-		border-bottom: none;
+		display: inline-block;
+		padding: .5em 3%;
+		width: auto;
+		background: darken( $white, 10%);
+		@include border-radius( 5px );
 
-		&:link {
-			color: $color_white;
-		}
-		&:visited {
-	 		color: $color_white;
+		&:link, &:visited {
+			background: darken( $white, 15%);
 		}
 		&:hover {
-			color: $color_white-bright;;
+			background: darken( $white, 25%);
 		}
 		&:active {
-		}
+			background: darken( $white, 35%);
+		}	}
+
+	@include breakpoint(tablet) {
+		display: none;
 	}
-}
-
-#footer-widgets {
-	aside {
-		padding: 1%;
-	}
-}
-
-#back-to-top {
-	@include breakpoint( $tablet ){	
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
-}
-
-#copyright {
-	margin-bottom: 10px;
-}
-
-#signup {
-	
-	h2 {
-		margin-top: .5em;
-		i {
-			&.fa-envelope {
-				display: block;
-				@include breakpoint( $tablet ) {
-					display: inline-block;
-				}
-			}
-		}
-	}
-}
-
-#contact {
-}
-
-/* Visit */
-
-#visit {
-	background: url("assets/images/map1.png") no-repeat;
-	background-position: center center;
-	background-size: cover;
 }

@@ -23,12 +23,12 @@ html {
  */
 
 ::-moz-selection {
-	background: orange;
+	background: $selectionColor;
 	text-shadow: none;
 }
 
 ::selection {
-	background: orange;
+	background: $selectionColor;
 	text-shadow: none;
 }
 

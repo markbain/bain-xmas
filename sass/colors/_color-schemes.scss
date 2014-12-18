@@ -1,31 +1,77 @@
 // Color schemes
 
 @mixin palette-0 {
+	
+	// Vars
+	
 	$bg: $color_white;
+	$color: $color_black;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color_blue-psj;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_black;
+	$icon-color: $color_blue-psj;
+
+	// Styles
+	
 	background: $bg;	
-	color: $color_black;
+	color: $color;
 	&::before {
 		background: darken($bg,3%);
 	}
 	a {
 		&:link, &:visited {
-			color: $color_black;
+			color: $color;
+			border-color: $border;
 
 		}
 		&:hover {
-
+			color: darken($color, 20%);
+			border-color: darken($border, 20%);
 		}
 		&:active {
 
+		}
+		&.fa {
+			&:link, &:visited {
+				color: $icon-color;
+			}
+			&:hover {
+				color: darken($icon-color, 10%);	
+			}			
+		}
+	}
+	h1,h2,h3 {
+		color: $header;
+		// text-shadow: 1px 1px 1px lighten($bg, 10%);
+	}
+	.button {
+		color: $btn-color;
+		background-color: $btn-bg;
+		&:hover {
+			background-color: darken($btn-bg, 10%);		
 		}
 	}
 }
 
 @mixin palette-1 {
-	// vars
-	$bg: $color_cape-palliser;
-	$color: $color_victoria-2;
 
+	// Vars
+
+	$bg: $color_pink-psj;
+	$color: $color_aubergine-psj;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_white;
+	$icon-color: $color;
+	
+	// Styles
+	
 	background: $bg;	
 	color: $color;
 	&::before {
@@ -34,82 +80,50 @@
 	a {
 		&:link, &:visited {
 			color: $color;
+			border-color: $border;
 
 		}
 		&:hover {
-
+			color: darken($color, 20%);
+			border-color: darken($border, 20%);
 		}
 		&:active {
 
 		}
-	}
-	h1,h2,h3 {
-		color: $color_white;
-	}
-}
-
-@mixin palette-4 {
-	// vars
-	$bg: $color_victoria-1;
-	$color: $color_cape-palliser;
-
-	background: $bg;	
-	color: $color;
-	&::before {
-		background: darken($bg,3%);
-	}
-	a {
-		&:link, &:visited {
-			color: $color;
-
-		}
-		&:hover {
-
-		}
-		&:active {
-
+		&.button {
+			&:link, &:visited {
+				color: $btn-color;
+				background-color: $btn-bg;
+			}
+			&:hover {
+				background-color: darken($btn-bg, 10%);		
+			}
 		}
 	}
 	h1,h2,h3 {
-		color: $color_white;
-	}
-}
-
-@mixin palette-3 {
-	// vars
-	$bg: $color_falcon;
-	$color: $color_cape-palliser;
-
-	background: $bg;	
-	color: $color;
-	&::before {
-		background: darken($bg,3%);
-	}
-	a {
-		&:link, &:visited {
-			color: $color;
-
-		}
-		&:hover {
-
-		}
-		&:active {
-
-		}
-	}
-	h1,h2,h3 {
-		color: $color_white;
+		color: $header;
+		text-shadow: 1px 1px 1px lighten($bg, 10%);
 	}
 	.button {
-		background-color: adjust_hue($bg, 100);
+		color: $btn-color;
+		background-color: $btn-bg;
+		&:hover {
+			background-color: darken($btn-bg, 10%);		
+		}
 	}
 }
 
-@mixin palette-5 {
+@mixin palette-2 {
 	// vars
-	$bg: $color_victoria-2;
-	$color: $color_cape-palliser;
-	$button-bg: adjust_hue($bg, 100);
+	$bg: $color_navy-psj;
+	$color: $color_blue-psj;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_white;
+	$icon-color: $color;
 
 	background: $bg;	
 	color: $color;
@@ -117,36 +131,243 @@
 		background: darken($bg,3%);
 	}
 	a {
-		&:link, &:visited {
-			color: $color;
-
-		}
-		&:hover {
-
-		}
-		&:active {
-
-		}
-	}
-	h1,h2,h3 {
-		color: $color_white;
-		text-shadow: 1px 1px 1px darken( $bg, 15%); 
-	}
-	.button {
-		background-color: $button-bg;
-		color: $color_white;
-		
 		&:link, &:visited {
 			color: $color_white;
 		}
-
-
 		&:hover {
-			background-color: darken( $bg, 15%);
+			color: $color_white;
 		}
-
 		&:active {
-
 		}
+		&.button {
+			&:link, &:visited {
+				color: $btn-color;
+				background-color: $btn-bg;
+			}
+			&:hover {
+				background-color: darken($btn-bg, 10%);		
+			}
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+}
+
+@mixin palette-3 { // Base = $color_aubergine-psj
+	// vars
+	$bg: $color_aubergine-psj;
+	$color: $color_pink-psj;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_white;
+	$icon-color: $color;
+
+	background: $bg;
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: $color_white;
+		}
+		&:hover {
+			color: $color_white;
+		}
+		&:active {
+		}
+		&.button {
+			&:link, &:visited {
+				color: $btn-color;
+				background-color: $btn-bg;
+			}
+			&:hover {
+				background-color: darken($btn-bg, 10%);		
+			}
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+}
+
+// Base = $color_blue-psj
+
+@mixin palette-4 { 
+	//vars
+	$bg: $color_blue-psj;
+	$color: $color_navy-psj;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_white;
+	$icon-color: $color;
+
+	background: $bg;	
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+
+	a {
+		&:link, &:visited {
+			color: $color_white;
+		}
+		&:hover {
+			color: $color_white;
+		}
+		&:active {
+		}
+		&.button {
+			&:link, &:visited {
+				color: $btn-color;
+				background-color: $btn-bg;
+			}
+			&:hover {
+				background-color: darken($btn-bg, 10%);		
+			}
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+}
+
+// Base = $color_black-psj
+
+@mixin palette-5 { 
+	$bg: $color_black-psj;
+	$color: $color_white;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_white;
+	$icon-color: $color;
+
+	background: $bg;	
+	color: $color_white;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: rgba(255,255,255,.5);
+			i {
+				color: darken($bg, 10%);
+				text-shadow: 1px 1px 1px lighten($bg, 10%);
+			}
+		}
+		&:hover {
+			color: $color_white;
+			i {
+				color: darken($bg, 20%);
+			}
+		}
+		&:active {
+		}
+		&.button {
+			&:link, &:visited {
+				color: $btn-color;
+				background-color: $btn-bg;
+			}
+			&:hover {
+				background-color: darken($btn-bg, 10%);		
+			}
+		}
+			
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+}
+
+// Base = $color_black-psj
+
+@mixin palette-6 { 
+	$bg: $color_red-psj;
+	$color: $color_white;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_white;
+	$icon-color: $color;
+
+	background: $bg;	
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: rgba(255,255,255,.5);
+		}
+		&:hover {
+			color: $color_white;
+		}
+		&:active {
+		}
+		&.button {
+			&:link, &:visited {
+				color: $btn-color;
+				background-color: $btn-bg;
+			}
+			&:hover {
+				background-color: darken($btn-bg, 10%);		
+			}
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
+	}
+}
+
+// Base = $color_black-psj
+
+@mixin palette-7 { 
+	$bg: $color_brown-psj;
+	$color: $color_white;
+	$border: $color;
+	$header: $color;
+	$btn-color: $color_white;
+	$btn-bg: $color;
+	$input-bg: rgba(0,0,0,.1);
+	$input-color: $color_white;
+	$icon-color: $color;
+	background: $bg;	
+	color: $color;
+	&::before {
+		background: darken($bg,3%);
+	}
+	a {
+		&:link, &:visited {
+			color: rgba(255,255,255,.5);
+		}
+		&:hover {
+			color: $color_white;
+		}
+		&:active {
+		}
+		&.button {
+			&:link, &:visited {
+				color: $btn-color;
+				background-color: $btn-bg;
+			}
+			&:hover {
+				background-color: darken($btn-bg, 10%);		
+			}
+		}
+	}
+	h1,h2,h3 {
+		color: $color_white;
 	}
 }

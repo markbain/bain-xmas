@@ -2,21 +2,25 @@
    Posts and pages
    ========================================================================== */
 
-.sticky {
+.site-main {
+		@include breakpoint( tablet ) {
+			margin-top: $fixed-header-height;
+		}
+	}
+
+
+.home {
+	.site-main {
+		margin-top: 0;
+	}
 }
 
-.hentry {
-	margin: 0 0 1.5em;
-}
+/* Entry Content */
 
-.byline,
-.updated {
-	display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-	display: inline;
+.entry-content {
+	p, h1, h2, h3, h4, h5, h6 {
+		@extend .textblock;
+	}
 }
 
 .page-links {
@@ -84,99 +88,189 @@ object {
 	max-width: 100%;
 }
 
-/* ==========================================================================
-   Books
-   ========================================================================== */
+/* Meta */
 
-.single-portfolio_item {
-
-	.media-object {
-
-		@include add-grid(24 at 480px);
-
-		article {
-			@include breakpoint( $mobile-horizontal ){
-				@include grid-span(16, 1);
-			}
-		}
-
-		aside {
-			@include breakpoint( $mobile-horizontal ){
-				@include grid-span(6, 19);
-			}
-			.image-wrapper {
-				float: none;
-				width: 100%;
-			}
-
-			&.is_stuck {
-				background: #eee;
-				@include transition(all, 0.8s, ease-in-out);
-				
-				.image-wrapper {
-					width: 50%;
-					@include center-block;
-					@include transition(all, 0.8s, ease-in-out);
-				}
-			}
-		}
-	}
-}
-
-.meta {
-	font-size: .88em;
-	font-style: italic;
-
+.meta, .entry-meta {
+	font-size: .9em;
+	color: $mid-grey;
 	a {
 		text-decoration: none;
-		font-style: normal;
+		color: inherit;
 	}
 }
 
-
-.entry-title a {
-	text-decoration: none;
-	border-bottom: none;
+.categories-links+.tags-links {
+	padding-top: .5em;
 }
+
+
+
+footer {
+	
+	&.entry-footer {
+	
+
+
+		@include breakpoint( tablet ) {
+	
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+
+}
+
+.byline, .page-links {
+	font-weight: bold;
+	margin-bottom: 1em;
+
+}
+
+ 
+/* Post Navigation */
 
 .post-navigation {
+	@include border;
+	
+	.container {
+		max-width: 100%;
+	}
+	
+	header {
+		display: inline-block;
+		@include breakpoint( mobile-horizontal ) {
+			display: block;
+		}
+	}
+
+	label {
+		display: none;
+		@include breakpoint( mobile-horizontal ) {
+			display: inline-block;
+		}
+	}
+
+	i {
+
+		@include breakpoint( mobile-horizontal ) {
+			display: inline-block;
+		}
+
+		&.icon-arrow-right {
+			padding: 0 10px 0 0;
+			@include breakpoint( mobile-horizontal ) {
+				padding: 0 0 0 10px;
+			}
+		}
+		&.icon-arrow-left {
+			padding: 0 10px 0 0;
+		}		
+	}
 
 }
 
-#lead {
-	margin: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-	text-align: left;
-	@extend .meta-label !optional;
-
-	@include breakpoint( $tablet ){
-		padding-top: 1em;
-		padding-bottom: 0;
+/* Use this class via @extend */
+.post-nav-block {
+	background: $white;
+	padding: 1em 3%;
+	@include breakpoint( mobile-horizontal ) {
+		background: none;
+		padding: 0;
 	}
 }
 
-.entry-title {
+.comment-navigation .nav-previous,
+.paging-navigation .nav-previous,
+.post-navigation .nav-previous {
+	@extend .post-nav-block;
+	float: none;
+	width: 100%;
 	margin-bottom: 1em;
-}
 
-.categories-links {
-	h4 {
-		@extend .h2-meta;	
-		margin-bottom: 5px;
+
+	@include breakpoint( mobile-horizontal ) {
+		float: left;
+		width: 50%;
+		margin-bottom: 0;
 	}
 }
 
-.tags-links {
-	h4 {
-		@extend .h2-meta;
-		margin-bottom: 5px;
+.comment-navigation .nav-next,
+.paging-navigation .nav-next,
+.post-navigation .nav-next {
+		float: none;
+		width: 100%;
+		text-align: left;	
+		@extend .post-nav-block;
+		@include breakpoint( mobile-horizontal ) {
+			float: right;
+			text-align: right;
+			width: 50%;
 	}
 }
 
-.edit-link {display: none;}
-.meta-label {
-	font-family: 'tablet-gothic', sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+
+
+/* Home */
+
+.blog .site-main {
+	margin: 0 auto;
+	max-width: 1600px;
+}
+
+.home-post {
+	
+	width: 100%;
+
+	@include breakpoint( mobile-horizontal ) {
+		float: left;
+		width: $grid-sizer-1;
+	}
+
+	@include breakpoint( tablet-horizontal ) {
+		float: left;
+		width: $grid-sizer-2;
+	}
+
+	a {
+		display: block;
+	}
+	
+	img {
+		width: 100%;
+
+	}
+
+	header {
+		padding: 1em 0;
+		.entry-meta {
+			font-size: .77em;
+		}
+
+		@include breakpoint( tablet ) {
+			float: none;
+			width: 100%;
+		}
+	}
+
+	h1.entry-title {
+		font-size: 1em;
+	}
+
+
+
+}
+
+/* Front Page */
+
+
+
+.block  {
+	@include outer-block;
+}
+
+/* Portfolio */
+
+.post-type-archive-portfolio_item .cta-secondary {
+	display: none;
 }

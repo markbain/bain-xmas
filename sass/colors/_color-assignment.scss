@@ -13,25 +13,41 @@
 // 	$color_red-psj 							= palette-6
 // 	$color_brown-psj 							= palette-7
 
-.blog-post {										@include palette-1;}
-.blog-post:nth-child(2n) {						@include palette-1;}
-body {												@include palette-0;}
-#bookshelf {										@include palette-1;}
-#buy-toggle{										@include palette-1;}
-.case-study .content {							@include palette-1;}
-#clients {											@include palette-5;}
-#contact {											@include palette-4;}
-#events {											@include palette-1;}
-.hero {												@include palette-1;}
 html {												@include palette-0;}
-#intro {												@include palette-5;}
-.js-nav-active .site-header {					@include palette-1;}
-.js-search-active .site-header {				@include palette-1;}
-.single .blog-post {								@include palette-0;}
-.single .blog-post:nth-child(2n) {			@include palette-0;}
-.site-footer {										@include palette-3;}
-.site-header {										@include palette-0;}
+body {												@include palette-0;}
+
+
+.search .blog-post,
+.blog .blog-post,
+.archive .blog-post {							
+	@include palette-4;
+}
+
+.search .blog-post:nth-child(2n),
+.blog .blog-post:nth-child(2n),
+.archive .blog-post:nth-child(2n) {			
+	@include palette-2;
+}
+
+#bookshelf {										@include palette-1;}
+
+#events {											@include palette-4;}
+#form-comments {									@include palette-4;}
+.hero {												@include palette-1;}
+
+.js-nav-active .site-header {					@include palette-3;}
+.js-search-active .site-header {				@include palette-7;}
+
+#list-comments {									
+	@include palette-1;
+}
+
+.blog-post {										@include palette-0;}
+
+.site-footer {										@include palette-5;}
+.site-header {										@include palette-4;}
 #the-books {										@include palette-0;}
-.purchase-options {								@include palette-1;}
-#quotes {											@include palette-1;}
+.post-navigation {								@include palette-7;}
+// .purchase-options {								@include palette-4;}
+#quotes {											@include palette-3;}
 #tweets {											@include palette-1;}

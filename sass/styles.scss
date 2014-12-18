@@ -1,12 +1,12 @@
 /*!
-Theme Name: MBD Master
-Description: A Mobile-first theme By Mark Bain Design
+Theme Name: MBd Longneck
+Description: A Mobile-first theme for me by me.
 Author: Mark Bain
 Author URI: http://markbaindesign.com/
-Version: 0.0
+Version: 2.0
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: _mbbasetheme
+Text Domain: _mbdlongneck
 Domain Path: /languages/
 Tags:
 
@@ -15,35 +15,34 @@ Tags:
 */
 
 // Reset, Variables, Mixins, Etc
-// DO NOT EDIT ORDER OF FILE
-
-/* Colors */
-@import "colors/colors"; // Set up color vars and palettes
-
+// DO NOT EDIT ORDER OF FILES
 @import "partials/color-me-sass";
 @import "partials/mixins";
 @import "partials/variables";
 @import "partials/normalize";
 
-
-
 // Bower Components
-
 @import "../bower_components/singularity/stylesheets/singularitygs";
+@import "../bower_components/animate-sass/animate";
 @import "../bower_components/fontawesome/scss/font-awesome";
-@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
-@import "../bower_components/modular-scale/stylesheets/modular-scale";
 
 
+body {
+    -webkit-backface-visibility: hidden; // Addresses a small issue in webkit: http://bit.ly/NEdoDq
+}
+.animated {
+    @include animate-prefixer(animation-duration, $base-duration);
+    @include animate-prefixer(animation-fill-mode, both);
+
+    &.hinge {
+        @include animate-prefixer(animation-duration, $base-duration * 2);
+    }
+}
 // Globals
 @import "partials/h5bp-global";
 @import "partials/general";
-
-/* Typography */
-@import "typography/typography";
-
 // @import "partials/grid";
-// @import "partials/webfonts";
+@import "partials/webfonts";
 
 // Layout
 @import "partials/layout";
@@ -53,34 +52,26 @@ Tags:
 // Modules
 @import "partials/hero";
 @import "partials/showcase";
-@import "partials/social";
-@import "partials/signup";
-@import "partials/masonry";
 @import "partials/featured-content";
-@import "partials/quotes";
-@import "partials/media-object";
-@import "partials/tables";
-@import "partials/svgicons";
-@import "partials/3d-button";
-@import "partials/headroom";
+
+/* Plugins */
+/* Styling related to JS plugins goes here */
+/* Each plugin has a file */
+@import "plugins/plugins";
 
 
-// Flexslider
-@import "partials/flexslider";
-@import "partials/flexslider-mods";
 
 // Menus, Page and Post styles
-@import "partials/responsive-nav";
 @import "partials/menus";
+@import "partials/responsive-nav";
 @import "partials/page-post";
 
 // Page Templates
-@import "partials/page-home";
-@import "partials/page-blog";
+// @import "partials/page-home";
+// @import "partials/page-blog";
 
 // Widgets, Search, Comments, Forms, Sharing
 @import "partials/widgets";
-@import "partials/comments";
 @import "partials/forms";
 
 // WordPress
@@ -93,7 +84,3 @@ Tags:
 // Helper Classes, Print, Etc
 @import "partials/helpers";
 @import "partials/print";
-@import "partials/animate";
-
-// Tests
-@import "partials/tests";

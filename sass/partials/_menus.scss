@@ -2,314 +2,202 @@
    Menus
    ========================================================================== */
 
-.nav-collapse {
-	transition: all 0.2s ease-in;
-
-	li:hover {
-		// background: rgba(0,0,0,.1);
-		@include transition(all, 0.3s, ease-in-out);
-	}
-}
-
-.main-navigation {
+ul.menu {
+	clear: both;
 	display: block;
-	font-size: 2em;
-	@include breakpoint($tablet){
-		margin-left: 200px;
-		text-align: right;
-		font-size: 1em;
-	}
+	width: 100%;
+	max-width: 100%;
+	text-align: center;
+	color: $black;
+	background-color: rgba(0,0,0,.7);
+	list-style: none;
+	margin: 0 0 1em 0;
+	padding-left: 0;
+	padding-bottom: 1em;
+	@include breakpoint( tablet ){
+		background-color: rgba(0,0,0,0);
+	} 
 
-}
+ 	li {
+		position: relative;
 
-.main-navigation ul {
-	@include clearfix;
-	font-weight: normal;	list-style: none;
-	margin: 15px 0 0 0;
-	@include breakpoint($tablet){
-		margin: 0;	
-	}
-	&.sub-menu {
-		@include breakpoint($tablet){
-			padding: 0;
-			width: 200px;
-
-			z-index: 2;
-			@include box-shadow();
-
-			li {
-				padding: 0;
-				width: 100%;
-				text-align: left;
-				margin: 0;
-				border-bottom: 1px solid rgba(0,0,0,0.1);
-
-				a {
-					display: block;
-					padding: 20px 10px;
-
-					&:hover {
-
-					}
-				}
-
-				ul { /* Level 2 sub menu */
-					left: -100%;
-					top: 0;
-				}
-
-				&:last-of-type {
-					border-bottom: none;
-				}
-			}
-		}
-	}
-
-	li {
-		text-align: center;
-		@include breakpoint($tablet){
-			padding: 20px 0;
-			border: none;
+		@include breakpoint(tablet) {
 			display: inline-block;
-			margin: 0 0 0 1em;
-			position: relative; // Allow absolute positioning
-		}
-
-		&:last-of-type {
-			border: none;
-		}
-
-		&.current-menu-item > a,
-		&.current_page_parent > a {
-			@include breakpoint($tablet){
-				// font-weight: bold;
+			&:last-child a {
+				border-bottom: none;
 			}
 		}
 
-		&.menu-item-has-children > a:after {
-			@include breakpoint($tablet){
-				font-family: 'FontAwesome';
-				content: '\f0d7'; //  fa-caret-down
-				padding-left: 5px;
-				opacity: .6;
-			}
-		}
-
-		a {
-			width: 100%;
-			display: block;
-			padding: .77em 10px;
-			@include border-radius(5px);
-			&:hover {
-				background: rgba(0,0,0,.1);
-			}
-			&:active {
-				background: rgba(0,0,0,.3);
-			}
-			@include breakpoint( $tablet ){
-				padding: 0;
-				border-radius: none;
-				&:hover {
-					background: none;
-				}
-				&:active {
-					background: rgba(0,0,0,.3);
-				}
-			} 
-		}
-
-
-
-		ul { /* sub menus */
-			display: none;
-			@include breakpoint($tablet){
-				right: 0;
-				top: 100%;
-				visibility: hidden;
-				position: absolute; // Overlay other content
+		ul { // Sub-menus
+			padding: 0;
+			list-style-type: none;
+			@include breakpoint(tablet){
+				position: absolute;  // Overlay other content 
+				left: 0;
+				width: 250px;
+				display: none; // Hide sub-menus
+				visibility: hidden; // Hide sub-menus
 				opacity: 0;
+				padding-bottom: 0; 
+			} 
+			li {
+				width: 100%;
+				@include breakpoint( tablet ){
+					text-align: left;
+					padding: 3px 3px;
+				} 
 			}
-			&.menu-item-has-children > a:after {
-				@include breakpoint($tablet){
-					font-family: 'FontAwesome';
-					content: '\f0d7'; //  fa-caret-down
-					padding-left: 5px;
-					opacity: .6;
-				}
+			&.sub-menu {
+				background: darken($menu-base-color, 2%);
 			}
-			
-
-		}			
+		}
 		&:hover > ul { 
-			@include breakpoint($tablet){
-				display: block; // Sub-menus appear on hover
-				opacity: 1;
-				visibility: visible;
-				@include transition(all, 0.3s, ease-in-out);
-			}
+			display: block; // Sub-menus appear on hover
+			opacity: 1;
+			visibility: visible;
+			// background: darken( $menu-base-color, 5%);
+			@include transition(all, 0.3s, ease-in-out);
 		}
 	}
-}
-	
-
-
-.main-navigation a {
-	text-decoration: none;
-	border-bottom: none;
-	//display: inline; 
-	&:hover {
-	}
-}
-
-/* Toggles */
-
-.js a#nav-toggle {
-	display: table-cell;
-	width: auto;
-	vertical-align: middle;
-	text-align: right;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-
-  	&::before {
-	  	@extend .fa-3x; // double size
-		font-family: 'FontAwesome';
-		// content: '\f0d7'; 	//  fa-caret-down
-		// content: '\f0c9'; 	//  fa-navicon
-		content: '\f142'; 		//  fa-ellipsis-v
-	}
-
-  @include breakpoint($tablet){
-	   display: none;
-	}	
-	&.active {
-		float: right;
-		&::before {
-  			content: '\f00d'; //  fa-close
-		}
-	}
-}
-
-a#search-toggle {
-	display: none;
-	float: none;
-	width: 16px;
-	&:link, &:visited {
-		// color: $color_white;
-	}
-	&::before {
-		font-family: 'FontAwesome';
-		content: '\f002'; //  fa-search
-	}
-	&.active {
-		&::before {
-  			content: '\f00d'; //  fa-close
-			
-		}
-	}
-}
-
-.js a#search-toggle {
-	@include breakpoint( $tablet ){
+	a {
 		display: block;
-		margin: 0;
-		padding: 24px 0; // visually adjusted ;)
-		float: right;
-	}
-}
-
-
-
-
-
-
-
-
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
-}
-
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
-
-/* ==========================================================================
-   Purchase Options Menu
-   ========================================================================== */
-
-.purchase-options {
-	padding: 1em 0;
-	ul {
-		background: $color_grey-light;
-		@extend .nobullets;
-		@include border-bottom-radius( 5px );
-
-		li {
-		
-			border-bottom: 1px solid darken($color_grey-light, 5%);
-			&:hover {
-				background: darken($color_grey-light, 5%);
-				color: $color_grey-dark;
-			}
-			&:active {
-				color: $color_white;
-				background: $color_grey;
-				border-bottom: 1px solid $color_grey;
-			}
+		font-weight: 700;
+		letter-spacing: 1px;
+		width: 100%;
+		padding: 1.5em 15px;
+		text-decoration: none;
+		border-bottom: 1px solid $black;
+		&:hover {
+			@extend .animated;
+			@extend .pulse;
+			@include breakpoint(tablet) {
+				background: darken($menu-base-color, 2%);
+				color: darken($black, 6%);
+			}		
 		}
-
-		a {
+		&:active {
+			color: $white;
+			background-color: lighten($mid-grey, 3%);
+		}
+		@include breakpoint(tablet) {
+			display: inline-block;
 			border-bottom: none;
-			display: block;
-			padding: 1em 10px;
-			span {
-				font-weight: bold;
-			}
+			padding: 1.5em 15px;
+			font-size: 13px;
 		}
 	}
-}
 
-/* Toggle */
-
-#buy-toggle {
-
-}
-
-.hidden-purchase-options {
-
-
-}
-
-/* Active */
-
-.js-purchase-options-active {
-		
-	#buy-toggle {
-		@include border-bottom-radius( 0 );
-	}	
+	@include breakpoint(tablet) {
+		text-align: right;
+		float: right;
+		padding: 0;
+		margin: 0;
+	}
 	
-	.purchase-options {
+}
 
+
+.menu ul li {
+	 position: relative;
+	 @include breakpoint( tablet ){
+		border-bottom: 1px solid darken($menu-base-color, 10%);
+	 	border-top: 1px solid lighten($menu-base-color, 2%); 
+	 } 
+ }
+
+ .menu ul li:first-of-type {
+	 border-top: none;
+ }
+
+.menu ul ul a {
+	 background: darken($menu-base-color, 2%);
+	 border-top: 1px solid darken($menu-base-color, 4%);
+	 border-bottom: 1px solid lighten($menu-base-color, 2%);
+ }
+
+.menu ul ul ul a {
+	 background: darken($menu-base-color, 4%);
+	 border-top: 1px solid darken($menu-base-color, 6%);
+	 border-bottom: 1px solid darken($menu-base-color, 4%);
+ }
+
+.menu ul ul li {
+ 	background: darken($menu-base-color, 10%);
+}
+
+/* Top level menu items */
+
+.menu li:hover > a {
+
+}
+
+.menu ul ul li:hover > a {
+	 background: darken($menu-base-color, 4%);
+ }
+
+.menu ul ul ul li:hover > a {
+	 background: darken($menu-base-color, 6%);
+ }
+
+.menu ul ul a:hover {
+}
+
+.menu ul li:hover > ul {
+	display: block;
+}
+
+.menu .current_page_item a,
+.menu .current-menu-item a {
+}
+
+/* Menu toggle */
+
+a#main-menu-toggle {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 1em; 
+		line-height: 1em;	
+		cursor: pointer;
+
+	&:before {
+		font-size: 1.5em;
+		font-family: 'fontawesome';
+		content: "\f1bb";
+	}
+	&.active:before {
+		color: $black;
+	}
+	@include breakpoint(tablet) {
+		display: none;
+	}
+}
+
+
+
+.menu li.page_item_has_children > a:after {
+	content: " +";
+	position: absolute;
+	right: 3%;
+	font-size: 1em;
+	padding: 0;
+}
+
+.menu li.page_item_has_children > a:after {
+	content: " +";
+	position: absolute;
+	right: 3%;
+	font-size: 1em;
+	padding: 0;
+}
+
+/* Highlight "contact" on main menu */
+
+.menu li.menu-item-923 > a {
+	@include cta-primary;
+	padding: .8em 10px;
+	@include breakpoint(tablet) {
+		padding: 5px 10px;
 	}
 
-	.hidden-purchase-options {
-	}
 }

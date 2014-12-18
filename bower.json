@@ -17,6 +17,7 @@
     "modernizr": "~2.6.2",
     "singularity": "~1.4.0",
     "fontawesome": "~4.2.0",
-	"modular-scale": "~2.0.3"
+	"modular-scale": "~2.0.3",
+	"animate-sass": "~0.6.2"
   }
 }

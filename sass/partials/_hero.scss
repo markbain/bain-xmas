@@ -1,78 +1,52 @@
-body.home {
-//		background: url(assets/images/hero-bg.jpg) no-repeat;
-// 	background-size: cover;
-}
-
 .hero {
-	color: #fff;
-	text-align: center;
-	padding-bottom: 0;
 	@include clearfix;
+	padding: 1em 0;
 	position: relative;
-	// z-index: -1;
-	
-	background: url("assets/images/office-hero.jpg") no-repeat transparent;
-	background-position: center center;
-	// background-color: $color_background-hero;
-	background-size: cover;
-	@include add-grid(24 at 480px);
-	@include add-gutter(1/3);
-	@include breakpoint( $tablet ){
+	background-color: $white;
+	border-bottom: 2px solid $light-grey;
 
-	} 
-	
-	/* Headings */
-	// h1 {color: $color_heading-1-hero;}
-	h2 {color: $color_heading-2-hero;}
-	h3 {color: $color_heading-3-hero;}
-	h4 {color: $color_heading-4-hero;}
-	h5 {color: $color_heading-5-hero;}
-	h6 {color: $color_heading-6-hero;}
-
-	.container {
-		background: transparent;
-		@include breakpoint($tablet) {
-			// background: url('assets/images/hero-background.jpg') no-repeat bottom right;
-		}
+	@include breakpoint(  mobile-horizontal ) {
+		padding: 2em 0;
+		background-image: url('../images/hero-2.png');
+		background-repeat: no-repeat;
+		background-position: top right;
 	}
-
-
 
 	.hero-image {
-		display: none;
-		margin: 0 auto;
-		padding: 0;
-		@include breakpoint( $tablet ) {
-			display: block;
-				// position: absolute;
-				// top: -140px;
-			//	right: -608px;
-			width: 30%;
+		@include breakpoint( mobile-horizontal ) {
+			float: right;
+			width: 45%;
+			margin-left: 10%;
 		}
-
 	}
 	.hero-text {
-
 		padding-top: 1em;
-		@include breakpoint( $tablet ) {
-			width: 50%;
-			margin: 0 auto;
-			
+		@include breakpoint( mobile-horizontal ) {
+			padding-top: 0;
+			width: 45%;
+			float: left;
 		}
-
+		h1 {
+			@extend h3;
+		}
 	}
-
-	a {
-		border-bottom: none;
+	img {
+		@include breakpoint( mobile-horizontal ) {
+			display: none;
+		}
 	}
 }
 
 
-.hero {
+.hero-header {
 	position: relative;
+	color: $black;
 	text-align: center;
 
-	@include breakpoint($tablet) {
+	@include breakpoint(mobile-horizontal) {
+		color: $white;
+		text-align: left;
+
 	}
 	a {
 		display: block;
@@ -80,7 +54,7 @@ body.home {
 		&.cta-primary {
 			@include cta-primary;
 			margin: 0 0 1em 0;
-			@include breakpoint($tablet) {
+			@include breakpoint(tablet) {
 				margin: 0 20px 0 0;
 			}
 		}
@@ -93,7 +67,7 @@ body.home {
 		@include clearfix;
 		div {
 			width: 100%;
-			@include breakpoint( $mobile){
+			@include breakpoint(mobile){
 				display: inline-block;
 				width: auto;
 			}
@@ -104,30 +78,54 @@ body.home {
 // Modifications to the basic hero module for the home page
 
 .home .hero {
+	padding: 0;
 
 	// Headers & typography
 
+	h1, h3 {
+		@include breakpoint( mobile-horizontal ) {
+			color: $black;
+		}
+	}
 
+	h1 {
+		padding: 30px 0 30px;
+		margin-bottom: 0;
+		@include breakpoint( mobile-horizontal ) {
+			font-size: 4em;
+			padding: 60px 0 30px;
+			width: 50%;
+		}
+		@include breakpoint( tablet-horizontal ) {
+			font-size: 5em;
+		}
+		@include breakpoint( desktop ) {
+			font-size: 6em;
+		}
+		@include breakpoint( desktop-wide ) {
+			font-size: 7em;
+
+		}
+	}
 
 	.hero-cta {
 				a {
 					padding: 1em; // Extra pad for bigness!
 				}
 		@include clearfix;
-		@include breakpoint($mobile-horizontal){
+		@include breakpoint(mobile-horizontal){
 			margin-bottom: 1em;
 		}
-		@include breakpoint($tablet){
+		@include breakpoint(tablet){
 			margin-bottom: 2em;
 		}
 
-	}
-	#lead {
-		@include breakpoint($tablet){
-			margin-bottom: 2em;
-		}
 	}
 }
 
-
-
+.hero-video-container {
+	margin-bottom: 1em;
+	@include breakpoint( mobile-horizontal ){
+		width: 80%;
+	} 
+}

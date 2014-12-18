@@ -51,7 +51,7 @@ img.aligncenter {
 }
 
 p.wp-caption-text {
-	@extend .meta !optional; 
+	@extend .meta;
 	margin: .5em 0;
 	text-align: left;
 	font-style: italic;
