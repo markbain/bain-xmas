@@ -5,7 +5,7 @@
 	"plugin_name": "make_music-custom-functions",
 	"plugin_path": "public_html/wp-content/plugins",
 	"mu_plugin_path": "public_html/wp-content/mu-plugins",
-	"assets": "dev/assets",
+	"assets": "httpdocs/assets",
 	"build_path": "httpdocs",
 	"dev_path": "dev",
 	"sass_theme_path": "sass"
