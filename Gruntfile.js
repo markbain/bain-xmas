@@ -234,10 +234,8 @@ module.exports = function(grunt) {
 	]);
 	grunt.registerTask('build', [
 
-		'image:dist',
-
-		// Modernizr		
-		'postcss',
+		'image:dist',	
+		'postcss', // Modernizr	
 
 		// Start with a clean release dir
 		// If required, legacy releases can be rebuild based on their git tag
