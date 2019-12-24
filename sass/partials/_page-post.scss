@@ -3,6 +3,8 @@
    ========================================================================== */
 
 .site-main {
+	background-image: url('../../images/nice_snow.png');
+	background-repeat: repeat;
 		@include breakpoint( tablet ) {
 			margin-top: $fixed-header-height;
 		}

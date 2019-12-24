@@ -1,5 +1,7 @@
-Mark Bain Design Boilerplate for HTML Projects 2015
+Xmas Videos
 ===
+
+Version: 1.0.0
 
 By Mark Bain Design
 ---
@@ -7,8 +9,6 @@ By Mark Bain Design
 Setup
 ---
 * Open project directory in terminal and run `npm install` to install all grunt plugins
-* Run `bower install` to download Bower components (and their dependencies) as listed in bower.js.
-* Run `grunt copybower`to copy assets from bower_components to the assets folder.
 
 Usage
 ---
